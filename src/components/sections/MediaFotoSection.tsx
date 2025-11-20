@@ -66,7 +66,7 @@ export default function MediaFotoSection() {
   const fotoKegiatanSwiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-gray-200">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Media Publikasi */}
@@ -80,7 +80,7 @@ export default function MediaFotoSection() {
 
             <div className="relative">
               {/* Custom Navigation Buttons with Gradient Background */}
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black/30 to-transparent z-10 pointer-events-none rounded-l-xl" />
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black/50 to-transparent z-10 pointer-events-none rounded-l-xl" />
               <button
                 onClick={() => mediaPublikasiSwiperRef.current?.slidePrev()}
                 className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 transition-all"
@@ -89,7 +89,7 @@ export default function MediaFotoSection() {
                 <ChevronLeftIcon className="w-6 h-6 text-white" />
               </button>
 
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black/30 to-transparent z-10 pointer-events-none rounded-r-xl" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black/50 to-transparent z-10 pointer-events-none rounded-r-xl" />
               <button
                 onClick={() => mediaPublikasiSwiperRef.current?.slideNext()}
                 className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 transition-all"
@@ -149,7 +149,7 @@ export default function MediaFotoSection() {
 
             <div className="relative">
               {/* Custom Navigation Buttons with Gradient Background */}
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black/30 to-transparent z-10 pointer-events-none rounded-l-xl" />
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black/50 to-transparent z-10 pointer-events-none rounded-l-xl" />
               <button
                 onClick={() => fotoKegiatanSwiperRef.current?.slidePrev()}
                 className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 transition-all"
@@ -158,7 +158,7 @@ export default function MediaFotoSection() {
                 <ChevronLeftIcon className="w-6 h-6 text-white" />
               </button>
 
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black/30 to-transparent z-10 pointer-events-none rounded-r-xl" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black/50 to-transparent z-10 pointer-events-none rounded-r-xl" />
               <button
                 onClick={() => fotoKegiatanSwiperRef.current?.slideNext()}
                 className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 transition-all"

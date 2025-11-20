@@ -1,25 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import {
-  HomeIcon,
-  UserGroupIcon,
-  DocumentTextIcon,
-  ServerIcon,
-  NewspaperIcon,
-  LinkIcon,
-  PhoneIcon,
-} from "@heroicons/react/24/outline";
+import Image from "next/image";
+
 
 const navItems = [
-  { name: "BERANDA", icon: HomeIcon, href: "/" },
-  { name: "PROFIL", icon: UserGroupIcon, href: "/profil" },
-  { name: "INFORMASI PUBLIK", icon: DocumentTextIcon, href: "/informasi-publik" },
-  { name: "LAYANAN", icon: ServerIcon, href: "/layanan" },
-  { name: "MEDIA", icon: NewspaperIcon, href: "/media" },
-  { name: "TAUTAN", icon: LinkIcon, href: "/tautan" },
-  { name: "KONTAK KAMI", icon: PhoneIcon, href: "/kontak" },
+  { name: "BERANDA", img: "/MENU/beranda.svg", href: "/" },
+  { name: "PROFIL", img: "/MENU/profil.svg", href: "/profil" },
+  { name: "INFORMASI PUBLIK", img: "/MENU/informasi publik.svg", href: "/informasi-publik" },
+  { name: "LAYANAN", img: "/MENU/layanan.svg", href: "/layanan" },
+  { name: "MEDIA", img: "/MENU/media.svg", href: "/media" },
+  { name: "TAUTAN", img: "/MENU/tautan.svg", href: "/tautan" },
+  { name: "KONTAK KAMI", img: "/MENU/kontak.svg", href: "/kontak" },
 ];
+
+
+
 
 export default function Navbar() {
   const [activeItem, setActiveItem] = useState("BERANDA");
@@ -31,7 +27,7 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex items-center justify-center border-t border-gray-100">
           {navItems.map((item) => {
-            const Icon = item.icon;
+            const Icon = item.img;
             return (
               <li key={item.name}>
                 <a
@@ -41,7 +37,8 @@ export default function Navbar() {
                     setActiveItem(item.name);
                   }}
                   className={`
-                    relative flex items-center gap-2 px-6 py-4 text-sm font-semibold transition-all duration-300
+                    relative flex items-center gap-2 px-6 py-4 text-lg font-semibold
+transition-all duration-300
                     ${
                       activeItem === item.name
                         ? "text-primary bg-primary/5"
@@ -49,7 +46,14 @@ export default function Navbar() {
                     }
                   `}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Image
+  src={item.img}
+  alt={item.name}
+  width={20}
+  height={20}
+  className="object-contain"
+/>
+
                   <span>{item.name}</span>
                   {activeItem === item.name && (
                     <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-t-full" />
@@ -83,7 +87,7 @@ export default function Navbar() {
         {mobileMenuOpen && (
           <div className="lg:hidden pb-4">
             {navItems.map((item) => {
-              const Icon = item.icon;
+              const Icon = item.img;
               return (
                 <a
                   key={item.name}
@@ -94,7 +98,8 @@ export default function Navbar() {
                     setMobileMenuOpen(false);
                   }}
                   className={`
-                    flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors
+                    flex items-center gap-3 px-4 py-3 text-lg font-semibold
+transition-colors
                     ${
                       activeItem === item.name
                         ? "text-primary bg-primary/5"
@@ -102,7 +107,14 @@ export default function Navbar() {
                     }
                   `}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Image
+  src={item.img}
+  alt={item.name}
+  width={28}
+  height={28}
+  className="object-contain"
+/>
+
                   <span>{item.name}</span>
                 </a>
               );

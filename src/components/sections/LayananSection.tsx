@@ -131,7 +131,7 @@ export default function LayananSection() {
   }, []);
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="bg-secondary rounded-3xl p-12">
           <div className="text-center mb-12">

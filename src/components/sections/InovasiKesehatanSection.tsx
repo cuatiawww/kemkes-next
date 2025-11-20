@@ -83,8 +83,9 @@ export default function InovasiKesehatanSection() {
   const visibleItems = inovasiData.items.slice(currentIndex, currentIndex + itemsPerPage);
 
   return (
-    <section className="container mx-auto px-4 py-16">
-      <div className="flex items-center justify-between mb-8">
+    <section className="bg-gray-100 py-16">
+      <div className="container mx-auto px-4">
+      {/* <div className="flex items-center justify-between mb-8">
         <h2 className="text-3xl font-bold text-primary">INOVASI KESEHATAN</h2>
         <button className="bg-white border-2 border-primary text-primary px-6 py-2.5 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-sm font-semibold whitespace-nowrap flex items-center gap-2">
           Lihat Detail
@@ -94,6 +95,21 @@ export default function InovasiKesehatanSection() {
         </button>
       </div>
       <p className="text-gray-600 mb-8">
+        Kumpulan teknologi dan pengembangan inovasi kesehatan yang berpengaruh
+        terhadap kualitas dan mutu dalam kesehatan di Indonesia
+      </p> */}
+      <div className="flex items-center justify-between mb-2">
+        <h2 className="text-3xl font-bold text-primary">
+          Inovasi Kesehatan
+        </h2>
+        <button className=" border-2 border-primary text-primary px-6 py-2.5 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-sm font-semibold whitespace-nowrap flex items-center gap-2">
+          Lihat Detail
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+      <p className="text-gray-600 mb-8 max-w-4xl">
         Kumpulan teknologi dan pengembangan inovasi kesehatan yang berpengaruh
         terhadap kualitas dan mutu dalam kesehatan di Indonesia
       </p>
@@ -227,6 +243,7 @@ export default function InovasiKesehatanSection() {
           animation: fadeIn 0.5s ease-out forwards;
         }
       `}</style>
+      </div>
     </section>
   );
 }

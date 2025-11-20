@@ -52,15 +52,21 @@ const rilisData = {
 const pengumumanData = [
   {
     id: 1,
-    image: "./logo.jpeg",
+    image: "./img1.png",
     title: "Buku Panduan dan Logo HKN ke-61",
-    date: "Tanggal Dipublikasi",
+    date: "07 Januari 2026",
   },
   {
     id: 2,
-    image: "./logo.jpeg",
+    image: "./img2.png",
     title: "Selamat Kepada Tim Terpilih di Grand Final Indonesia Healthcare AI Hackathon 2025",
-    date: "Tanggal Dipublikasi",
+    date: " 07 Januari 2026",
+  },
+  {
+    id: 2,
+    image: "./img3.png",
+    title: "Bersama Lawan TB: RSUP Persahabatan Hadirkan i-ECHO Tuberkulosis 2025",
+    date: " 07 Januari 2026",
   },
 ];
 
@@ -127,7 +133,7 @@ export default function MainContentSection() {
               {/* Header */}
               <div className="flex items-start justify-between mb-12">
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-primary mb-6">
+                  <h2 className="text-2xl font-bold text-primary mb-4">
                     RILIS KEMENTERIAN KESEHATAN
                   </h2>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -199,9 +205,11 @@ export default function MainContentSection() {
           <div className="lg:col-span-1 space-y-8">
             {/* Pengumuman */}
             <div>
-              <h3 className="text-xl font-bold text-primary mb-4">
-                PENGUMUMAN
-              </h3>
+              <h3 className="text-xl font-bold text-primary mb-1">PENGUMUMAN</h3>
+<p className="text-gray-600 text-sm mb-4">
+  Informasi resmi terbaru terkait pemberitahuan, panduan, dan agenda penting dari Kementerian Kesehatan RI.
+</p>
+
 
               <Card className="border border-gray-200 bg-white rounded-2xl">
                 <CardContent className="p-6 flex flex-col">
@@ -209,13 +217,13 @@ export default function MainContentSection() {
                     {pengumumanData.map((item, index) => (
                       <div
                         key={item.id}
-                        className={`flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-4 transition-all ${
+                        className={`relative flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-4 transition-all ${
                           index !== pengumumanData.length - 1
                             ? "border-b border-gray-200"
                             : ""
                         }`}
                       >
-                        <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                        <div className="relative w-30 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
                           <img
                             src={item.image}
                             alt={item.title}
@@ -228,11 +236,20 @@ export default function MainContentSection() {
                           </p>
                           <p className="text-xs text-gray-500">{item.date}</p>
                         </div>
+                        {item.id === 1 && (
+                          <div className="absolute bottom-2 right-2 animate-blink">
+                            <img
+                              src="./new.png"
+                              alt="New"
+                              className="w-12 h-12 object-contain"
+                            />
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
 
-                  <button className="w-full bg-white border-2 border-primary text-primary py-3 px-4 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-sm font-semibold flex items-center justify-center gap-2">
+                  <button className="w-full bg-white border-0 border-primary text-primary py-3 px-4 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-sm font-semibold flex items-center justify-center gap-2">
                     Lihat Lainnya
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -244,22 +261,24 @@ export default function MainContentSection() {
 
             {/* Media Sosial */}
             <div>
-              <h3 className="text-xl font-bold text-primary mb-4">
-                MEDIA SOSIAL
-              </h3>
+              <h3 className="text-xl font-bold text-primary mb-1">MEDIA SOSIAL</h3>
+<p className="text-gray-600 text-sm mb-4">
+  Ikuti update terkini dari berbagai platform media sosial resmi Kementerian Kesehatan RI.
+</p>
 
-              <Card className="border-1 bg-white rounded-2xl ">
+
+              <Card className="border-0 border-gray-200 bg-white rounded-2xl shadow-md  transition-all duration-300">
                 <CardContent className="p-6">
                   {/* Social Media Tabs */}
-                  <div className="flex items-center justify-center gap-2 mb-6 flex-wrap">
+                  <div className="flex items-center justify-center gap-3 mb-6 flex-wrap">
                     {socialMediaPlatforms.map((platform, index) => (
                       <button
                         key={platform.name}
                         onClick={() => setActivePlatform(index)}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                        className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 transform ${
                           activePlatform === index
-                            ? "bg-primary text-white"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                            ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg scale-105"
+                            : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105 hover:shadow-md"
                         }`}
                       >
                         {platform.name}
@@ -268,7 +287,7 @@ export default function MainContentSection() {
                   </div>
 
                   {/* Embed Container */}
-                  <div className="bg-gray-50 rounded-lg p-4 h-[400px] overflow-y-auto relative">
+                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 h-[400px] overflow-y-auto relative border-2 border-gray-200 shadow-inner">
                     <div
                       key={activePlatform}
                       className="w-full"

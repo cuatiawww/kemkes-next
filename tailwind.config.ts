@@ -26,6 +26,15 @@ const config: Config = {
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],
       },
+      keyframes: {
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.3' },
+        },
+      },
+      animation: {
+        blink: 'blink 1.5s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

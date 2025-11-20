@@ -13,7 +13,7 @@ export default function MarqueeBar() {
         <span className="inline-block px-4">
           <span className="font-bold mr-4">📢 INFORMASI TERKINI:</span>
           {newsItems.map((item, index) => (
-            <span key={index} className="mx-8">
+            <span key={index} className="mx-6">
               • {item}
             </span>
           ))}
