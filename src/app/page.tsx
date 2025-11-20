@@ -1,65 +1,108 @@
-import Image from "next/image";
+import TopBar from "@/components/layout/TopBar";
+import Navbar from "@/components/layout/Navbar";
+import MarqueeBar from "@/components/layout/MarqueeBar";
+import Footer from "@/components/layout/Footer";
+import HeroSection from "@/components/sections/HeroSection";
+import MainContentSection from "@/components/sections/MainContentSection";
+import LayananSection from "@/components/sections/LayananSection";
+import InovasiKesehatanSection from "@/components/sections/InovasiKesehatanSection";
+import LayananDigitalSection from "@/components/sections/LayananDigitalSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Beranda",
+  description:
+    "Selamat kepada tim terpilih di Grand Final Indonesia Healthcare AI Hackathon 2025. Tim terpilih yang berhasil menghadirkan ide dan solusi layanan kesehatan berbasis AI untuk Indonesia.",
+  openGraph: {
+    title: "Indonesia Healthcare AI Hackathon 2025 - Kemenkes RI",
+    description:
+      "Selamat kepada tim terpilih di Grand Final Indonesia Healthcare AI Hackathon 2025",
+    images: ["/og-hackathon.jpg"],
+  },
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      {/* Structured Data for Event */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Event",
+            name: "Indonesia Healthcare AI Hackathon 2025 - Grand Final",
+            description:
+              "Kompetisi inovasi kesehatan berbasis kecerdasan buatan untuk meningkatkan layanan kesehatan di Indonesia",
+            startDate: "2025-03-15",
+            endDate: "2025-03-17",
+            eventStatus: "https://schema.org/EventScheduled",
+            eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+            location: {
+              "@type": "Place",
+              name: "Kementerian Kesehatan RI",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Jl. HR. Rasuna Said Blok X5 Kav. 4-9",
+                addressLocality: "Jakarta Selatan",
+                addressRegion: "DKI Jakarta",
+                postalCode: "12950",
+                addressCountry: "ID",
+              },
+            },
+            organizer: {
+              "@type": "GovernmentOrganization",
+              name: "Kementerian Kesehatan Republik Indonesia",
+              url: "https://kemkes.go.id",
+            },
+            image: ["https://kemkes.go.id/event-hackathon-2025.jpg"],
+          }),
+        }}
+      />
+
+      {/* Structured Data for Breadcrumb */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Beranda",
+                item: "https://kemkes.go.id",
+              },
+            ],
+          }),
+        }}
+      />
+
+      <main role="main" itemScope itemType="https://schema.org/WebPage">
+        <TopBar />
+        <Navbar />
+        <MarqueeBar />
+
+        <article itemScope itemType="https://schema.org/Article">
+          <meta itemProp="headline" content="Indonesia Healthcare AI Hackathon 2025 Grand Final" />
+          <meta
+            itemProp="description"
+            content="Selamat kepada tim terpilih di Grand Final Indonesia Healthcare AI Hackathon 2025"
+          />
+          <meta itemProp="datePublished" content="2025-01-15" />
+          <meta itemProp="author" content="Kementerian Kesehatan RI" />
+          
+          <HeroSection />
+        </article>
+
+        <MainContentSection />
+        <LayananSection />
+        <InovasiKesehatanSection />
+        <LayananDigitalSection />
+
+        <Footer />
       </main>
-    </div>
+    </>
   );
 }

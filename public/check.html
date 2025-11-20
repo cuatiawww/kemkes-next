@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kementerian Kesehatan RI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-teal-500 text-white">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-plus-circle text-2xl"></i>
+                    <span class="font-bold text-lg">Kementerian Kesehatan RI</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Pencarian..." class="px-4 py-2 rounded-full text-gray-800 w-64">
+                        <button class="absolute right-2 top-2">
+                            <i class="fas fa-search text-gray-600"></i>
+                        </button>
+                    </div>
+                    <button class="bg-yellow-400 text-teal-800 px-4 py-2 rounded-full font-semibold">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="bg-white text-gray-700 shadow-sm">
+            <div class="container mx-auto px-4">
+                <ul class="flex flex-wrap items-center justify-center md:justify-start space-x-4 md:space-x-8 py-3 text-sm">
+                    <li><a href="#" class="hover:text-teal-600"><i class="fas fa-home mr-1"></i> Beranda</a></li>
+                    <li><a href="#" class="hover:text-teal-600"><i class="fas fa-layer-group mr-1"></i> Anak</a></li>
+                    <li><a href="#" class="hover:text-teal-600"><i class="fas fa-briefcase mr-1"></i> Germas/PTVK</a></li>
+                    <li><a href="#" class="hover:text-teal-600"><i class="fas fa-hospital mr-1"></i> Layanan</a></li>
+                    <li><a href="#" class="hover:text-teal-600"><i class="fas fa-newspaper mr-1"></i> Berita</a></li>
+                    <li><a href="#" class="hover:text-teal-600"><i class="fas fa-question-circle mr-1"></i> Tentang</a></li>
+                    <li><a href="#" class="hover:text-teal-600"><i class="fas fa-phone mr-1"></i> Kontak Kami</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-teal-600 to-teal-500 text-white py-20 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200" alt="Medical Background" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">SELAMAT KEPADA<br>TIM TERPILIH DI GRAND FINAL</h1>
+            <p class="text-xl md:text-2xl mb-4">INDONESIA HEALTHCARE AI HACKATHON 2025</p>
+            <p class="text-sm md:text-base max-w-2xl mx-auto">Tim terpilih yang berhasil bersaing dalam menghadirkan ide dan solusi layanan kesehatan berbasis kecerdasan buatan (AI) untuk Indonesia</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column -->
+            <div class="lg:col-span-2">
+                <!-- Rilis Kementerian Kesehatan -->
+                <section class="bg-white rounded-lg shadow-lg p-6 h-full flex flex-col">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-bold text-teal-600">RILIS KEMENTERIAN KESEHATAN</h2>
+                        <button class="text-teal-600 hover:underline text-sm">Lihat Lainnya →</button>
+                    </div>
+                    <p class="text-gray-600 mb-4">Kementerian Kesehatan RI membagikan beberapa berita terkait seputar kesehatan dan upaya perkembangan bagi kesehatan nasional</p>
+                    
+                    <!-- Featured Article -->
+                    <div class="relative rounded-lg overflow-hidden shadow-lg mb-4 flex-grow">
+                        <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=800&h=600&fit=crop" alt="Healthcare" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                            <h3 class="text-white text-xl font-bold">Pelayanan Kesehatan untuk Masyarakat Daerah Terpencil</h3>
+                        </div>
+                    </div>
+
+                    <!-- Article Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-xl transition">
+                            <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=400&h=200&fit=crop" alt="Konsultasi" class="w-full h-40 object-cover">
+                            <div class="p-3">
+                                <p class="text-sm text-gray-700">Konsultasi Kesehatan di Fasilitas Kesehatan</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-xl transition">
+                            <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=200&fit=crop" alt="Vaksinasi" class="w-full h-40 object-cover">
+                            <div class="p-3">
+                                <p class="text-sm text-gray-700">Program Vaksinasi Ibu dan Anak di Puskesmas</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow overflow-hidden hover:shadow-xl transition">
+                            <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=400&h=200&fit=crop" alt="Pemeriksaan" class="w-full h-40 object-cover">
+                            <div class="p-3">
+                                <p class="text-sm text-gray-700">Pemeriksaan Produk Farmasi Nasional</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column - Sidebar -->
+            <div class="lg:col-span-1 space-y-8">
+                <!-- Pengumuman -->
+                <section class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-teal-600 mb-4">PENGUMUMAN</h3>
+                    <button class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg mb-4 hover:bg-gray-200">Lihat Lainnya</button>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3 pb-4 border-b">
+                            <div class="bg-teal-100 p-3 rounded-lg">
+                                <i class="fas fa-megaphone text-teal-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold">Baku Pangan dan Gizi Anak Indonesia 2025</p>
+                                <p class="text-xs text-gray-500">Tanggal Dipublikasi</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 pb-4 border-b">
+                            <div class="bg-yellow-100 p-3 rounded-lg">
+                                <i class="fas fa-file-alt text-yellow-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold">Dokumen Aplikasi dan Informasi Kesehatan Mobile Apps</p>
+                                <p class="text-xs text-gray-500">Tanggal Dipublikasi</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-blue-100 p-3 rounded-lg">
+                                <i class="fas fa-info-circle text-blue-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold">Pengumuman Program Pelatihan Tenaga Kesehatan 2025</p>
+                                <p class="text-xs text-gray-500">Tanggal Dipublikasi</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Media Sosial -->
+                <section class="bg-white rounded-lg shadow-lg p-6">
+                    <!-- Social Media Icon Menu -->
+                    <div class="flex items-center justify-center space-x-4 mb-6">
+                        <button onclick="changeSocialMedia('facebook')" class="social-btn p-3 rounded-lg hover:bg-gray-100 transition" title="Facebook">
+                            <i class="fab fa-facebook text-3xl text-blue-600"></i>
+                        </button>
+                        <button onclick="changeSocialMedia('twitter')" class="social-btn p-3 rounded-lg hover:bg-gray-100 transition" title="Twitter">
+                            <i class="fab fa-twitter text-3xl text-sky-500"></i>
+                        </button>
+                        <button onclick="changeSocialMedia('instagram')" class="social-btn p-3 rounded-lg hover:bg-gray-100 transition active bg-gray-100" title="Instagram">
+                            <i class="fab fa-instagram text-3xl text-pink-600"></i>
+                        </button>
+                        <button onclick="changeSocialMedia('youtube')" class="social-btn p-3 rounded-lg hover:bg-gray-100 transition" title="YouTube">
+                            <i class="fab fa-youtube text-3xl text-red-600"></i>
+                        </button>
+                        <button onclick="changeSocialMedia('tiktok')" class="social-btn p-3 rounded-lg hover:bg-gray-100 transition" title="TikTok">
+                            <i class="fab fa-tiktok text-3xl text-gray-800"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Social Media Embed Frame -->
+                    <div class="border-4 border-red-500 rounded-lg p-6 bg-white min-h-[400px] flex items-center justify-center">
+                        <div id="social-content" class="text-center w-full">
+                            <!-- Instagram Content (Default) -->
+                            <div id="instagram-content" class="social-platform-content">
+                                <i class="fab fa-instagram text-8xl text-pink-600 mb-4"></i>
+                                <h4 class="font-bold text-xl mb-2">EMBED INSTAGRAM</h4>
+                                <h4 class="font-bold text-xl mb-4">KEMKES</h4>
+                                <button class="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-6 py-2 rounded-lg hover:shadow-lg transition flex items-center justify-center mx-auto">
+                                    <i class="fab fa-instagram mr-2"></i>
+                                    Follow @kemenkes_ri
+                                </button>
+                            </div>
+                            
+                            <!-- Facebook Content -->
+                            <div id="facebook-content" class="social-platform-content hidden">
+                                <i class="fab fa-facebook text-8xl text-blue-600 mb-4"></i>
+                                <h4 class="font-bold text-xl mb-2">EMBED FACEBOOK</h4>
+                                <h4 class="font-bold text-xl mb-4">KEMKES</h4>
+                                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition flex items-center justify-center mx-auto">
+                                    <i class="fab fa-facebook mr-2"></i>
+                                    Like @KemenkesRI
+                                </button>
+                            </div>
+                            
+                            <!-- Twitter Content -->
+                            <div id="twitter-content" class="social-platform-content hidden">
+                                <i class="fab fa-twitter text-8xl text-sky-500 mb-4"></i>
+                                <h4 class="font-bold text-xl mb-2">EMBED TWITTER</h4>
+                                <h4 class="font-bold text-xl mb-4">KEMKES</h4>
+                                <button class="bg-sky-500 text-white px-6 py-2 rounded-lg hover:bg-sky-600 transition flex items-center justify-center mx-auto">
+                                    <i class="fab fa-twitter mr-2"></i>
+                                    Follow @KemenkesRI
+                                </button>
+                            </div>
+                            
+                            <!-- YouTube Content -->
+                            <div id="youtube-content" class="social-platform-content hidden">
+                                <i class="fab fa-youtube text-8xl text-red-600 mb-4"></i>
+                                <h4 class="font-bold text-xl mb-2">EMBED YOUTUBE</h4>
+                                <h4 class="font-bold text-xl mb-4">KEMKES</h4>
+                                <button class="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition flex items-center justify-center mx-auto">
+                                    <i class="fab fa-youtube mr-2"></i>
+                                    Subscribe Kemenkes RI
+                                </button>
+                            </div>
+                            
+                            <!-- TikTok Content -->
+                            <div id="tiktok-content" class="social-platform-content hidden">
+                                <i class="fab fa-tiktok text-8xl text-gray-800 mb-4"></i>
+                                <h4 class="font-bold text-xl mb-2">EMBED TIKTOK</h4>
+                                <h4 class="font-bold text-xl mb-4">KEMKES</h4>
+                                <button class="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-900 transition flex items-center justify-center mx-auto">
+                                    <i class="fab fa-tiktok mr-2"></i>
+                                    Follow @kemenkes_ri
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="bg-gradient-to-r from-teal-500 to-teal-600 py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-white mb-12">
+                <h2 class="text-3xl font-bold mb-4">LAYANAN KEMENTERIAN KESEHATAN</h2>
+                <p class="mb-6">Akses berbagai layanan kesehatan secara komprehensif di satu portal untuk kemudahan akses informasi dan pelayanan kesehatan masyarakat</p>
+                <div class="relative max-w-md mx-auto">
+                    <input type="text" placeholder="Pencarian..." class="w-full px-6 py-3 rounded-full text-gray-800">
+                    <button class="absolute right-3 top-3">
+                        <i class="fas fa-search text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Service Cards -->
+            <div class="flex items-center justify-center">
+                <button class="text-white text-3xl mr-4 hover:text-teal-200">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-5xl">
+                    <div class="bg-white rounded-lg p-6 text-center hover:shadow-xl transition cursor-pointer">
+                        <i class="fas fa-hospital text-teal-500 text-4xl mb-3"></i>
+                        <p class="text-sm font-semibold text-gray-700">FASYANKES</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 text-center hover:shadow-xl transition cursor-pointer">
+                        <i class="fas fa-stethoscope text-teal-500 text-4xl mb-3"></i>
+                        <p class="text-sm font-semibold text-gray-700">PELAYANAN NAKES TERPADU</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 text-center hover:shadow-xl transition cursor-pointer">
+                        <i class="fas fa-clipboard-list text-teal-500 text-4xl mb-3"></i>
+                        <p class="text-sm font-semibold text-gray-700">FARMASI DAN ALAT KESEHATAN</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 text-center hover:shadow-xl transition cursor-pointer">
+                        <i class="fas fa-heartbeat text-teal-500 text-4xl mb-3"></i>
+                        <p class="text-sm font-semibold text-gray-700">KESEHATAN LINGKUNGAN</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 text-center hover:shadow-xl transition cursor-pointer">
+                        <i class="fas fa-users text-teal-500 text-4xl mb-3"></i>
+                        <p class="text-sm font-semibold text-gray-700">PELAYANAN KESEHATAN MASYARAKAT</p>
+                    </div>
+                </div>
+
+                <button class="text-white text-3xl ml-4 hover:text-teal-200">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health News -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold text-teal-600">INOVASI KESEHATAN</h2>
+            <button class="text-teal-600 hover:underline">Lihat Detail →</button>
+        </div>
+        <p class="text-gray-600 mb-8">Kumpulan teknologi dan pengembangan inovasi kesehatan yang berpengaruh terhadap kualitas dan mutu dalam kesehatan di Indonesia</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="md:col-span-2">
+                <div class="relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=800" alt="Inovasi" class="w-full h-96 object-cover">
+                </div>
+            </div>
+            <div class="space-y-6">
+                <div class="flex space-x-4">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=200" alt="Laboratory" class="w-20 h-20 rounded-lg object-cover">
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">LABORATORIUM</h4>
+                        <p class="text-xs text-gray-600">Fasilitas laboratorium kesehatan modern untuk diagnosis akurat dan penelitian kesehatan</p>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=200" alt="Robotics" class="w-20 h-20 rounded-lg object-cover">
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">ROBOTIKA AND REMOTE SURGERY</h4>
+                        <p class="text-xs text-gray-600">Teknologi robotika untuk operasi jarak jauh dan prosedur medis presisi tinggi</p>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=200" alt="E-Health" class="w-20 h-20 rounded-lg object-cover">
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">KESEHATAN BERBASIS E-HEALTH</h4>
+                        <p class="text-xs text-gray-600">Platform digital untuk kemudahan akses layanan kesehatan dan informasi medis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Health Services -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold text-teal-600">LAYANAN DIGITAL KESEHATAN</h2>
+            <button class="text-teal-600 hover:underline">Lihat Detail →</button>
+        </div>
+        <p class="text-gray-600 mb-8">Akses layanan kesehatan terbaik melalui aplikasi digital yang mudah digunakan atau mengakses website yang telah kami sediakan. Dapatkan kemudahan untuk kesehatan lebih baik.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400" alt="Fasilitas" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-teal-900 to-transparent flex items-end p-6">
+                    <div class="text-white">
+                        <p class="font-bold text-lg">FASILILTAS ONLINE</p>
+                        <p class="text-sm">Akses fasilitas kesehatan secara online</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400" alt="Konsultasi" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-teal-900 to-transparent flex items-end p-6">
+                    <div class="text-white">
+                        <p class="font-bold text-lg">KONSULTASI ONLINE</p>
+                        <p class="text-sm">Konsultasi dengan dokter via online</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=400" alt="Rekam Medis" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-teal-900 to-transparent flex items-end p-6">
+                    <div class="text-white">
+                        <p class="font-bold text-lg">REKAM MEDIS ELEKTRONIK</p>
+                        <p class="text-sm">Akses rekam medis Anda kapan saja</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative rounded-lg overflow-hidden shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400" alt="Administrasi" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-teal-900 to-transparent flex items-end p-6">
+                    <div class="text-white">
+                        <p class="font-bold text-lg">ADMINISTRASI KESEHATAN</p>
+                        <p class="text-sm">Urus administrasi kesehatan mudah</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-teal-600 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Kementerian Kesehatan RI</h3>
+                    <p class="text-sm mb-2">Jl. H.R. Rasuna Said Blok X.5 Kav. 4-9</p>
+                    <p class="text-sm mb-2">Jakarta 12950, Indonesia</p>
+                    <p class="text-sm">Telp: (021) 5201590</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Tautan Penting</h3>
+                    <ul class="text-sm space-y-2">
+                        <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:underline">Layanan Publik</a></li>
+                        <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:underline">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Ikuti Kami</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-teal-200"><i class="fab fa-facebook text-2xl"></i></a>
+                        <a href="#" class="hover:text-teal-200"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="hover:text-teal-200"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="hover:text-teal-200"><i class="fab fa-youtube text-2xl"></i></a>
+                        <a href="#" class="hover:text-teal-200"><i class="fab fa-linkedin text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-teal-500 pt-6 text-center text-sm">
+                <p>&copy; 2025 Kementerian Kesehatan Republik Indonesia. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Change Social Media Function
+        function changeSocialMedia(platform) {
+            // Hide all content
+            const allContents = document.querySelectorAll('.social-platform-content');
+            allContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            // Remove active class from all buttons
+            const allButtons = document.querySelectorAll('.social-btn');
+            allButtons.forEach(btn => {
+                btn.classList.remove('active', 'bg-gray-100');
+            });
+
+            // Show selected content
+            const selectedContent = document.getElementById(platform + '-content');
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+            }
+
+            // Add active class to clicked button
+            event.currentTarget.classList.add('active', 'bg-gray-100');
+        }
+    </script>
+</body>
+</html>
