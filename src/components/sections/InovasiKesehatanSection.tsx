@@ -6,7 +6,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 const inovasiData = {
   featured: {
     id: 1,
-    image: "./Image4.png",
+    image: "./layanan/inovasi.png",
     title: "INOVASI KESEHATAN",
     description:
       "Rangkaian terobosan dan pengembangan solusi baru untuk meningkatkan kualitas pelayanan dan sistem kesehatan di Indonesia."

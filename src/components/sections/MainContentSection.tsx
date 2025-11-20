@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -64,7 +63,7 @@ const pengumumanData = [
     date: " 07 Januari 2026",
   },
   {
-    id: 2,
+    id: 3,
     image: "/img3.png",
     title: "Bersama Lawan TB: RSUP Persahabatan Hadirkan i-ECHO Tuberkulosis 2025",
     date: " 07 Januari 2026",
@@ -177,7 +176,7 @@ export default function MainContentSection() {
                 {rilisData.items.map((item) => (
                   <article
                     key={item.id}
-                                          className="bg-white rounded-2xl md:rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105 p-3 md:p-4"
+                                          className="bg-white border border-gray-200 rounded-2xl md:rounded-3xl transition-all duration-300 group cursor-pointer transform  p-3 md:p-4"
 >
                     <div className="relative w-full aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden mb-3 md:mb-4">
                       <Image
@@ -275,7 +274,7 @@ export default function MainContentSection() {
 </p>
 
 
-              <Card className="border-0 border-gray-200 bg-white rounded-xl md:rounded-2xl shadow-md transition-all duration-300">
+              <Card className="border border-gray-200 bg-white rounded-xl md:rounded-2xl shadow-md transition-all duration-300">
                 <CardContent className="p-4 md:p-6">
                   {/* Social Media Tabs */}
                   <div className="flex items-center justify-center gap-2 md:gap-3 mb-4 md:mb-6 flex-wrap">
@@ -286,7 +285,7 @@ export default function MainContentSection() {
                         className={`px-4 md:px-5 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 transform ${
                           activePlatform === index
                             ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg scale-105"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105 hover:shadow-md"
+                            : "bg-gray-100 text-gray-700"
                         }`}
                       >
                         {platform.name}

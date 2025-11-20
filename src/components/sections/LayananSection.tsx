@@ -314,11 +314,13 @@ export default function LayananSection() {
                         style={{ width: '246px', height: '263px', paddingTop: '57px', paddingRight: '43px', paddingBottom: '57px', paddingLeft: '43px' }}
                       >
                         <div className="flex flex-col items-center text-center" style={{ gap: '29px' }}>
-                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
-                            <img
+                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0 relative">
+                            <Image
                               src={layanan.icon}
                               alt={layanan.title}
-                              className="w-full h-full object-contain"
+                              fill
+                              sizes="64px"
+                              className="object-contain"
                             />
                           </div>
                           <h4 className="text-sm font-semibold uppercase leading-tight line-clamp-2 w-full" style={{ color: '#666666' }}>
@@ -387,13 +389,15 @@ export default function LayananSection() {
                       >
                         <div className="flex flex-col items-center text-center" style={{ gap: isMobile ? '20px' : '29px' }}>
                           <div className={cn(
-                            "flex items-center justify-center flex-shrink-0",
+                            "flex items-center justify-center flex-shrink-0 relative",
                             isMobile ? "w-12 h-12" : "w-16 h-16"
                           )}>
-                            <img
+                            <Image
                               src={layanan.icon}
                               alt={layanan.title}
-                              className="w-full h-full object-contain"
+                              fill
+                              sizes={isMobile ? "48px" : "64px"}
+                              className="object-contain"
                             />
                           </div>
                           <h3 className={cn(

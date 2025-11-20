@@ -49,7 +49,7 @@ export default function RilisSection() {
           </p>
 
           {/* Featured Article */}
-          <div className="relative rounded-xl overflow-hidden shadow-lg mb-6 flex-grow min-h-[300px] group cursor-pointer">
+          <div className="relative rounded-xl overflow-hidden mb-6 flex-grow min-h-[300px] group cursor-pointer">
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
               style={{ backgroundImage: `url('${rilisData.featured.image}')` }}
