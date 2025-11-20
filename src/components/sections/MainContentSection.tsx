@@ -124,23 +124,23 @@ export default function MainContentSection() {
   }, [activePlatform]);
 
   return (
-    <section className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <section className="py-8 md:py-16 lg:py-20 bg-gray-100">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {/* Left Column - Rilis */}
           <div className="lg:col-span-2">
             <div className="h-full flex flex-col">
               {/* Header */}
-              <div className="flex items-start justify-between mb-12">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 md:mb-8 lg:mb-12 gap-4">
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-primary mb-4">
+                  <h2 className="text-xl md:text-2xl font-bold text-primary mb-2 md:mb-4">
                     RILIS KEMENTERIAN KESEHATAN
                   </h2>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
                     Informasi resmi dan terkini dari Kementerian Kesehatan RI mengenai kebijakan serta perkembangan isu kesehatan nasional.
                   </p>
                 </div>
-                <button className="ml-6  border-2 border-primary text-primary px-6 py-2.5 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-sm font-semibold whitespace-nowrap flex items-center gap-2">
+                <button className="md:ml-6 border-2 border-primary text-primary px-4 md:px-6 py-2 md:py-2.5 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-xs md:text-sm font-semibold whitespace-nowrap flex items-center justify-center gap-2 w-full md:w-auto">
                   Lihat Lainnya
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -149,7 +149,7 @@ export default function MainContentSection() {
               </div>
 
               {/* Featured Article */}
-                              <div className="relative rounded-2xl overflow-hidden border border-gray-200 mb-4 flex-grow min-h-[300px] group cursor-pointer">
+                              <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 mb-3 md:mb-4 flex-grow min-h-[200px] md:min-h-[300px] group cursor-pointer">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                     style={{
@@ -157,12 +157,12 @@ export default function MainContentSection() {
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-white text-xl font-bold mb-2">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                    <h3 className="text-white text-base md:text-xl font-bold mb-1 md:mb-2 line-clamp-2">
                       {rilisData.featured.title}
                     </h3>
-                    <div className="flex items-center gap-1 text-sm text-white/90">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex items-center gap-1 text-xs md:text-sm text-white/90">
+                      <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                       {rilisData.featured.date}
@@ -171,26 +171,26 @@ export default function MainContentSection() {
                 </div>
 
               {/* Article Grid */}
-                              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 ">
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mt-6 md:mt-12 lg:mt-16">
 
                 {rilisData.items.map((item) => (
                   <article
                     key={item.id}
-                                          className="bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105 p-4"
+                                          className="bg-white rounded-2xl md:rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105 p-3 md:p-4"
 >
-                    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4">
+                    <div className="relative w-full aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden mb-3 md:mb-4">
                       <img
                         src={item.image}
                         alt={item.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     </div>
-                    <div className="px-2">
-                      <p className="text-base text-gray-800 font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-300">
+                    <div className="px-1 md:px-2">
+                      <p className="text-sm md:text-base text-gray-800 font-bold mb-1 md:mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-300">
                         {item.title}
                       </p>
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-gray-500">
+                        <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                         {item.date}
@@ -203,28 +203,28 @@ export default function MainContentSection() {
           </div>
 
           {/* Right Column - Sidebar */}
-          <div className="lg:col-span-1 space-y-8">
+          <div className="lg:col-span-1 space-y-6 md:space-y-8">
             {/* Pengumuman */}
             <div>
-              <h3 className="text-xl font-bold text-primary mb-1">PENGUMUMAN</h3>
-<p className="text-gray-600 text-sm mb-4">
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-1">PENGUMUMAN</h3>
+<p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
   Informasi resmi terbaru terkait pemberitahuan, panduan, dan agenda penting dari Kementerian Kesehatan RI.
 </p>
 
 
-              <Card className="border border-gray-200 bg-white rounded-2xl">
-                <CardContent className="p-6 flex flex-col">
-                  <div className="space-y-0 flex-grow mb-6">
+              <Card className="border border-gray-200 bg-white rounded-xl md:rounded-2xl">
+                <CardContent className="p-4 md:p-6 flex flex-col">
+                  <div className="space-y-0 flex-grow mb-4 md:mb-6">
                     {pengumumanData.map((item, index) => (
                       <div
                         key={item.id}
-                        className={`relative flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-4 transition-all ${
+                        className={`relative flex items-start gap-2 md:gap-3 cursor-pointer hover:bg-gray-50 p-3 md:p-4 transition-all ${
                           index !== pengumumanData.length - 1
                             ? "border-b border-gray-200"
                             : ""
                         }`}
                       >
-                        <div className="relative w-30 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                        <div className="relative w-24 md:w-30 h-16 md:h-20 flex-shrink-0 rounded-md md:rounded-lg overflow-hidden bg-gray-100">
                           <img
                             src={item.image}
                             alt={item.title}
@@ -232,17 +232,17 @@ export default function MainContentSection() {
                           />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold text-gray-800 mb-2 line-clamp-2">
+                          <p className="text-xs md:text-sm font-semibold text-gray-800 mb-1 md:mb-2 line-clamp-2">
                             {item.title}
                           </p>
-                          <p className="text-xs text-gray-500">{item.date}</p>
+                          <p className="text-[10px] md:text-xs text-gray-500">{item.date}</p>
                         </div>
                         {item.id === 1 && (
-                          <div className="absolute bottom-2 right-2 animate-blink">
+                          <div className="absolute bottom-1 md:bottom-2 right-1 md:right-2 animate-blink">
                             <img
                               src="./new.png"
                               alt="New"
-                              className="w-12 h-12 object-contain"
+                              className="w-8 h-8 md:w-12 md:h-12 object-contain"
                             />
                           </div>
                         )}
@@ -250,9 +250,9 @@ export default function MainContentSection() {
                     ))}
                   </div>
 
-                  <button className="w-full bg-white border-0 border-primary text-primary py-3 px-4 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-sm font-semibold flex items-center justify-center gap-2">
+                  <button className="w-full bg-white border-0 border-primary text-primary py-2.5 md:py-3 px-4 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-xs md:text-sm font-semibold flex items-center justify-center gap-2">
                     Lihat Lainnya
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </button>
@@ -262,21 +262,21 @@ export default function MainContentSection() {
 
             {/* Media Sosial */}
             <div>
-              <h3 className="text-xl font-bold text-primary mb-1">MEDIA SOSIAL</h3>
-<p className="text-gray-600 text-sm mb-4">
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-1">MEDIA SOSIAL</h3>
+<p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
   Ikuti update terkini dari berbagai platform media sosial resmi Kementerian Kesehatan RI.
 </p>
 
 
-              <Card className="border-0 border-gray-200 bg-white rounded-2xl shadow-md  transition-all duration-300">
-                <CardContent className="p-6">
+              <Card className="border-0 border-gray-200 bg-white rounded-xl md:rounded-2xl shadow-md transition-all duration-300">
+                <CardContent className="p-4 md:p-6">
                   {/* Social Media Tabs */}
-                  <div className="flex items-center justify-center gap-3 mb-6 flex-wrap">
+                  <div className="flex items-center justify-center gap-2 md:gap-3 mb-4 md:mb-6 flex-wrap">
                     {socialMediaPlatforms.map((platform, index) => (
                       <button
                         key={platform.name}
                         onClick={() => setActivePlatform(index)}
-                        className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 transform ${
+                        className={`px-4 md:px-5 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 transform ${
                           activePlatform === index
                             ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg scale-105"
                             : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105 hover:shadow-md"
@@ -288,7 +288,7 @@ export default function MainContentSection() {
                   </div>
 
                   {/* Embed Container */}
-                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 h-[400px] overflow-y-auto relative border-2 border-gray-200 shadow-inner">
+                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg md:rounded-xl p-3 md:p-5 h-[300px] md:h-[400px] overflow-y-auto relative border-2 border-gray-200 shadow-inner">
                     <div
                       key={activePlatform}
                       className="w-full"

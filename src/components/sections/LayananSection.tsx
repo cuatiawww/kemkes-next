@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronLeftIcon, ChevronRightIcon, MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 
 const layananData = [
   {
     id: 1,
-    icon: "./layanan/1.svg",
+    icon: "./LAYANAN/1.svg",
     title: "SATUSEHAT",
     description: "Sistem data kesehatan terpadu untuk integrasi informasi kesehatan nasional",
     category: "Digital",
@@ -15,7 +15,7 @@ const layananData = [
   },
   {
     id: 2,
-    icon: "./layanan/2.svg",
+    icon: "./LAYANAN/2.svg",
     title: "PENANGGULANGAN PENYAKIT",
     description: "Layanan kesehatan preventif dan penanggulangan penyakit menular",
     category: "Kesehatan",
@@ -23,7 +23,7 @@ const layananData = [
   },
   {
     id: 3,
-    icon: "./layanan/3.svg",
+    icon: "./LAYANAN/3.svg",
     title: "FARMASI DAN ALAT KESEHATAN",
     description: "Pengelolaan farmasi nasional dan distribusi alat kesehatan",
     category: "Farmasi",
@@ -31,7 +31,7 @@ const layananData = [
   },
   {
     id: 4,
-    icon: "./layanan/4.svg",
+    icon: "./LAYANAN/4.svg",
     title: "KEBIJAKAN KESEHATAN",
     description: "Program kesehatan keluarga dan kebijakan kesehatan masyarakat",
     category: "Kebijakan",
@@ -39,7 +39,7 @@ const layananData = [
   },
   {
     id: 5,
-    icon: "./layanan/5.svg",
+    icon: "./LAYANAN/5.svg",
     title: "PELAYANAN KESEHATAN RUJUKAN",
     description: "Layanan rujukan kesehatan untuk fasilitas kesehatan tingkat lanjut",
     category: "Kesehatan",
@@ -47,7 +47,7 @@ const layananData = [
   },
   {
     id: 6,
-    icon: "./layanan/6.svg",
+    icon: "./LAYANAN/6.svg",
     title: "SERTIFIKASI KESEHATAN",
     description: "Penerbitan sertifikat dan izin praktik tenaga kesehatan",
     category: "Administrasi",
@@ -55,7 +55,7 @@ const layananData = [
   },
   {
     id: 7,
-    icon: "./layanan/7.svg",
+    icon: "./LAYANAN/7.svg",
     title: "DATA INFORMASI KESEHATAN",
     description: "Portal data dan informasi kesehatan nasional",
     category: "Digital",
@@ -69,7 +69,23 @@ export default function LayananSection() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchResults, setSearchResults] = useState<typeof layananData>([]);
   const searchRef = useRef<HTMLDivElement>(null);
-  const itemsPerView = 5;
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftPos, setScrollLeftPos] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const itemsPerView = isMobile ? 1 : 5;
+
+  // Detect screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const canScrollLeft = currentIndex > 0;
   const canScrollRight = currentIndex < layananData.length - itemsPerView;
@@ -85,6 +101,56 @@ export default function LayananSection() {
       setCurrentIndex(currentIndex + 1);
     }
   };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  // Touch/Mouse drag handlers
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX);
+    setScrollLeftPos(currentIndex);
+  }, [currentIndex]);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX;
+    const diff = startX - x;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && canScrollRight) {
+        setCurrentIndex(prev => prev + 1);
+        setIsDragging(false);
+      } else if (diff < 0 && canScrollLeft) {
+        setCurrentIndex(prev => prev - 1);
+        setIsDragging(false);
+      }
+    }
+  }, [isDragging, startX, canScrollLeft, canScrollRight]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    setStartX(e.touches[0].pageX);
+    setScrollLeftPos(currentIndex);
+  }, [currentIndex]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    const x = e.touches[0].pageX;
+    const diff = startX - x;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && canScrollRight) {
+        setCurrentIndex(prev => prev + 1);
+      } else if (diff < 0 && canScrollLeft) {
+        setCurrentIndex(prev => prev - 1);
+      }
+    }
+  }, [startX, canScrollLeft, canScrollRight]);
 
   // Handle search
   const handleSearch = (query: string) => {
@@ -131,42 +197,42 @@ export default function LayananSection() {
   }, []);
 
   return (
-    <section className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <div className="bg-secondary rounded-3xl p-12">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
+    <section className="py-8 md:py-16 bg-gray-100">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="bg-secondary rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12">
+          <div className="text-center mb-6 md:mb-10">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 md:mb-3">
               LAYANAN KEMENTERIAN KESEHATAN
             </h2>
-            <p className="text-white/90 text-lg max-w-3xl mx-auto">
+            <p className="text-white/90 text-sm md:text-base lg:text-lg max-w-3xl mx-auto px-2">
               Akses berbagai layanan resmi Kementerian Kesehatan RI untuk
               mendukung kebutuhan informasi dan pelayanan kesehatan masyarakat.
             </p>
 
             {/* Search Section */}
-            <div className="mt-8 max-w-2xl mx-auto" ref={searchRef}>
+            <div className="mt-4 md:mt-6 max-w-2xl mx-auto px-2 md:px-0" ref={searchRef}>
               <div className="relative">
                 <div className="relative">
-                  <MagnifyingGlassIcon className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <MagnifyingGlassIcon className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 w-4 md:w-5 h-4 md:h-5 text-gray-400" />
                   <input
                     type="text"
                     placeholder="Cari layanan kesehatan..."
                     value={searchQuery}
                     onChange={(e) => handleSearch(e.target.value)}
                     onFocus={() => searchQuery && setShowSuggestions(true)}
-                    className="w-full pl-14 pr-24 py-4 rounded-full text-gray-800 focus:outline-none focus:ring-4 focus:ring-white/50 transition-all"
+                    className="w-full pl-10 md:pl-12 pr-20 md:pr-28 py-3 md:py-3.5 rounded-full text-sm md:text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-white/30 transition-all shadow-lg"
                   />
                   {searchQuery && (
                     <button
                       onClick={handleClearSearch}
-                      className="absolute right-28 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                      className="absolute right-16 md:right-24 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
                     >
-                      <XMarkIcon className="w-5 h-5" />
+                      <XMarkIcon className="w-4 md:w-5 h-4 md:h-5" />
                     </button>
                   )}
                   <button
                     onClick={() => searchQuery && setShowSuggestions(false)}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white px-8 py-2 rounded-full hover:bg-primary/90 transition-all"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white px-4 md:px-6 py-1.5 md:py-2 rounded-full hover:bg-primary/90 transition-all text-xs md:text-sm font-medium"
                   >
                     Cari
                   </button>
@@ -264,43 +330,73 @@ export default function LayananSection() {
             </div>
           )}
 
-          <div className="relative">
+          <div className="relative px-2 md:px-0">
             <button
               onClick={scrollLeft}
               disabled={!canScrollLeft}
               className={cn(
-                "absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg transition-all",
+                "absolute left-0 md:-left-4 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 md:p-3 shadow-xl transition-all",
                 canScrollLeft
-                  ? "hover:scale-110 cursor-pointer"
-                  : "opacity-50 cursor-not-allowed"
+                  ? "hover:scale-110 hover:shadow-2xl cursor-pointer opacity-100"
+                  : "opacity-0 pointer-events-none"
               )}
             >
-              <ChevronLeftIcon className="w-6 h-6 text-secondary" />
+              <ChevronLeftIcon className="w-5 h-5 md:w-6 md:h-6 text-secondary" />
             </button>
 
-            <div className="overflow-hidden">
+            <div
+              ref={sliderRef}
+              className="overflow-hidden cursor-grab active:cursor-grabbing mx-8 md:mx-0"
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+            >
               <div
-                className="flex gap-6 transition-transform duration-500 ease-in-out"
+                className="flex transition-transform duration-500 ease-out"
                 style={{
                   transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
+                  gap: isMobile ? '16px' : '29px'
                 }}
               >
                 {layananData.map((layanan) => {
                   return (
                     <div
                       key={layanan.id}
-                      className="flex-shrink-0 w-1/5 min-w-[246px]"
+                      className={cn(
+                        "flex-shrink-0",
+                        isMobile ? "w-full" : "w-1/5 min-w-[246px]"
+                      )}
                     >
-                      <div className="bg-white rounded-[30px] cursor-pointer flex items-center justify-center" style={{ width: '246px', height: '263px', paddingTop: '57px', paddingRight: '43px', paddingBottom: '57px', paddingLeft: '43px' }}>
-                        <div className="flex flex-col items-center text-center" style={{ gap: '29px' }}>
-                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                      <div
+                        className="bg-white cursor-pointer flex flex-col items-center justify-center mx-auto"
+                        style={{
+                          width: isMobile ? '220px' : '246px',
+                          height: isMobile ? '240px' : '263px',
+                          borderRadius: '30px',
+                          paddingTop: isMobile ? '45px' : '57px',
+                          paddingRight: isMobile ? '30px' : '43px',
+                          paddingBottom: isMobile ? '45px' : '57px',
+                          paddingLeft: isMobile ? '30px' : '43px'
+                        }}
+                      >
+                        <div className="flex flex-col items-center text-center" style={{ gap: isMobile ? '20px' : '29px' }}>
+                          <div className={cn(
+                            "flex items-center justify-center flex-shrink-0",
+                            isMobile ? "w-12 h-12" : "w-16 h-16"
+                          )}>
                             <img
                               src={layanan.icon}
                               alt={layanan.title}
                               className="w-full h-full object-contain"
                             />
                           </div>
-                          <h3 className="text-sm font-semibold uppercase leading-tight line-clamp-2 w-full" style={{ color: '#666666' }}>
+                          <h3 className={cn(
+                            "font-semibold uppercase leading-tight line-clamp-2 w-full",
+                            isMobile ? "text-xs" : "text-sm"
+                          )} style={{ color: '#666666' }}>
                             {layanan.title}
                           </h3>
                         </div>
@@ -315,14 +411,31 @@ export default function LayananSection() {
               onClick={scrollRight}
               disabled={!canScrollRight}
               className={cn(
-                "absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg transition-all",
+                "absolute right-0 md:-right-4 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 md:p-3 shadow-xl transition-all",
                 canScrollRight
-                  ? "hover:scale-110 cursor-pointer"
-                  : "opacity-50 cursor-not-allowed"
+                  ? "hover:scale-110 hover:shadow-2xl cursor-pointer opacity-100"
+                  : "opacity-0 pointer-events-none"
               )}
             >
-              <ChevronRightIcon className="w-6 h-6 text-secondary" />
+              <ChevronRightIcon className="w-5 h-5 md:w-6 md:h-6 text-secondary" />
             </button>
+          </div>
+
+          {/* Dot Indicators */}
+          <div className="flex items-center justify-center gap-2 mt-4 md:mt-6">
+            {Array.from({ length: layananData.length - itemsPerView + 1 }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={cn(
+                  "transition-all duration-300 rounded-full",
+                  currentIndex === index
+                    ? isMobile ? "w-6 h-1.5 bg-white" : "w-8 h-2 bg-white"
+                    : isMobile ? "w-1.5 h-1.5 bg-white/40" : "w-2 h-2 bg-white/40 hover:bg-white/60"
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>
