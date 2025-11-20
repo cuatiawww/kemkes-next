@@ -1,7 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const bannerImages = [
   {
@@ -60,10 +60,13 @@ export default function HeroSection() {
               index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            <img
+            <Image
               src={banner.url}
               alt={banner.alt}
-              className="w-full h-full object-cover"
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              className="object-cover"
             />
             {/* Overlay gradient for better dot visibility */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30" />

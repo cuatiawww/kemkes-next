@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 // Extend Window interface untuk social media embeds
 declare global {
@@ -23,26 +24,26 @@ declare global {
 const rilisData = {
   featured: {
     id: 1,
-    image: "./rilis_1.webp",
+    image: "/rilis_1.webp",
     title: "Pelayanan Kesehatan untuk Masyarakat Daerah Terpencil",
     date: "10 Nov 2025",
   },
   items: [
     {
       id: 2,
-      image: "./rilis_2.webp",
+      image: "/rilis_2.webp",
       title: "Konsultasi Kesehatan di Fasilitas Kesehatan",
       date: "10 Nov 2025",
     },
     {
       id: 3,
-      image: "./rilis_3.webp",
+      image: "/rilis_3.webp",
       title: "Program Vaksinasi Ibu dan Anak di Puskesmas",
       date: "09 Nov 2025",
     },
     {
       id: 4,
-      image: "./rilis_4.webp",
+      image: "/rilis_4.webp",
       title: "Pemeriksaan Produk Farmasi Nasional",
       date: "08 Nov 2025",
     },
@@ -52,19 +53,19 @@ const rilisData = {
 const pengumumanData = [
   {
     id: 1,
-    image: "./img1.png",
+    image: "/img1.png",
     title: "Buku Panduan dan Logo HKN ke-61",
     date: "07 Januari 2026",
   },
   {
     id: 2,
-    image: "./img2.png",
+    image: "/img2.png",
     title: "Selamat Kepada Tim Terpilih di Grand Final Indonesia Healthcare AI Hackathon 2025",
     date: " 07 Januari 2026",
   },
   {
     id: 2,
-    image: "./img3.png",
+    image: "/img3.png",
     title: "Bersama Lawan TB: RSUP Persahabatan Hadirkan i-ECHO Tuberkulosis 2025",
     date: " 07 Januari 2026",
   },
@@ -179,10 +180,12 @@ export default function MainContentSection() {
                                           className="bg-white rounded-2xl md:rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105 p-3 md:p-4"
 >
                     <div className="relative w-full aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden mb-3 md:mb-4">
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     </div>
                     <div className="px-1 md:px-2">
@@ -225,10 +228,12 @@ export default function MainContentSection() {
                         }`}
                       >
                         <div className="relative w-24 md:w-30 h-16 md:h-20 flex-shrink-0 rounded-md md:rounded-lg overflow-hidden bg-gray-100">
-                          <img
+                          <Image
                             src={item.image}
                             alt={item.title}
-                            className="w-full h-full object-cover"
+                            fill
+                            sizes="120px"
+                            className="object-cover"
                           />
                         </div>
                         <div className="flex-1 min-w-0">
@@ -239,9 +244,11 @@ export default function MainContentSection() {
                         </div>
                         {item.id === 1 && (
                           <div className="absolute bottom-1 md:bottom-2 right-1 md:right-2 animate-blink">
-                            <img
-                              src="./new.png"
+                            <Image
+                              src="/new.png"
                               alt="New"
+                              width={48}
+                              height={48}
                               className="w-8 h-8 md:w-12 md:h-12 object-contain"
                             />
                           </div>

@@ -1,27 +1,29 @@
 "use client";
 
+import Image from "next/image";
+
 const layananDigitalData = [
   {
     id: 1,
-    image: "./DIGITAL KESEHATAN/edukasi sehat.png",
+    image: "/DIGITAL KESEHATAN/edukasi sehat.png",
     title: "EDUKASI SEHAT",
     description: "Platform edukasi kesehatan untuk meningkatkan pengetahuan masyarakat tentang gaya hidup sehat",
   },
   {
     id: 2,
-    image: "./DIGITAL KESEHATAN/lpse.png",
+    image: "/DIGITAL KESEHATAN/lpse.png",
     title: "LAYANAN PENGADAAN SECARA ELEKTRONIK (LPSE)",
     description: "Sistem pengadaan barang dan jasa secara elektronik untuk transparansi dan efisiensi",
   },
   {
     id: 3,
-    image: "./DIGITAL KESEHATAN/jdih.png",
+    image: "/DIGITAL KESEHATAN/jdih.png",
     title: "JARINGAN DOKUMENTASI DAN INFORMASI HUKUM (JDIH)",
     description: "Portal dokumentasi dan informasi produk hukum kesehatan nasional",
   },
   {
     id: 4,
-    image: "./DIGITAL KESEHATAN/perpustakaan.png",
+    image: "/DIGITAL KESEHATAN/perpustakaan.png",
     title: "PERPUSTAKAAN KEMENTERIAN KESEHATAN",
     description: "Akses koleksi digital buku dan jurnal kesehatan untuk referensi dan penelitian",
   },
@@ -61,10 +63,12 @@ export default function LayananDigitalSection() {
             }}
           >
             <div className="relative h-full overflow-hidden">
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                fill
+                sizes="340px"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent group-hover:from-secondary/95 group-hover:via-secondary/60 transition-all duration-500" />
 

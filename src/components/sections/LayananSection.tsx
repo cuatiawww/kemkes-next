@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronLeftIcon, ChevronRightIcon, MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const layananData = [
   {
@@ -252,11 +253,13 @@ export default function LayananSection() {
                             onClick={() => handleSelectSuggestion(layanan)}
                             className="w-full text-left px-4 py-3 hover:bg-gray-50 rounded-xl transition-colors flex items-center gap-3"
                           >
-                            <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
-                              <img
+                            <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 relative">
+                              <Image
                                 src={layanan.icon}
                                 alt={layanan.title}
-                                className="w-full h-full object-contain"
+                                fill
+                                sizes="40px"
+                                className="object-contain"
                               />
                             </div>
                             <div className="flex-1 min-w-0">
