@@ -184,9 +184,6 @@ export default function MainContentSection() {
                         alt={item.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute top-2 left-2 bg-primary text-white text-xs font-semibold px-2 py-1 rounded">
-                        313 × 238
-                      </div>
                     </div>
                     <div className="px-2">
                       <p className="text-base text-gray-800 font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-300">
