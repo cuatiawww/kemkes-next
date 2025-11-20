@@ -6,49 +6,60 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 const inovasiData = {
   featured: {
     id: 1,
-    image: "https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=800",
-    title: "Teknologi AI dalam Diagnosa Medis",
-    description: "Implementasi kecerdasan buatan untuk diagnosis penyakit yang lebih akurat dan cepat"
+    image: "./Image4.png",
+    title: "INOVASI KESEHATAN",
+    description:
+      "Rangkaian terobosan dan pengembangan solusi baru untuk meningkatkan kualitas pelayanan dan sistem kesehatan di Indonesia."
   },
+
   items: [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=200",
-      title: "LABORATORIUM",
-      description: "Fasilitas laboratorium kesehatan modern untuk diagnosis akurat dan penelitian kesehatan"
+      image: "./Rectangle 210.png",
+      title: "SATUSEHAT",
+      description:
+        "Platform nasional yang mengintegrasikan data kesehatan individu antar fasilitas pelayanan kesehatan melalui Rekam Medis Elektronik (RME)."
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=200",
-      title: "ROBOTIKA AND REMOTE SURGERY",
-      description: "Teknologi robotika untuk operasi jarak jauh dan prosedur medis presisi tinggi"
+      image: "./Image 2.png",
+      title: "BIOMEDICAL AND GENOME SCIENCE INITIATIVE (BGSI)",
+      description:
+        "Program inisiatif nasional yang mengembangkan layanan precision medicine melalui riset biomedis dan genomik tingkat lanjut."
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=200",
-      title: "KESEHATAN BERBASIS E-HEALTH",
-      description: "Platform digital untuk kemudahan akses layanan kesehatan dan informasi medis"
+      image: "./Image 3.png",
+      title: "SATU DATA KESEHATAN",
+      description:
+        "Sistem integrasi data kesehatan nasional yang menyajikan informasi komprehensif melalui dashboard analitik yang terstandarisasi."
+    },
+
+    {
+      id: 1,
+      image: "./Rectangle 210.png",
+      title: "SATUSEHAT",
+      description:
+        "Platform nasional yang mengintegrasikan data kesehatan individu antar fasilitas pelayanan kesehatan melalui Rekam Medis Elektronik (RME)."
     },
     {
-      id: 4,
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=200",
-      title: "TELEMEDICINE",
-      description: "Konsultasi kesehatan jarak jauh dengan teknologi video conference"
+      id: 2,
+      image: "./Image 2.png",
+      title: "BIOMEDICAL AND GENOME SCIENCE INITIATIVE (BGSI)",
+      description:
+        "Program inisiatif nasional yang mengembangkan layanan precision medicine melalui riset biomedis dan genomik tingkat lanjut."
     },
     {
-      id: 5,
-      image: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=200",
-      title: "MEDICAL IMAGING",
-      description: "Teknologi pencitraan medis canggih untuk diagnosis lebih presisi"
-    },
-    {
-      id: 6,
-      image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=200",
-      title: "BIOSENSOR TECHNOLOGY",
-      description: "Sensor biologis untuk monitoring kesehatan real-time"
-    },
+      id: 3,
+      image: "./Image 3.png",
+      title: "SATU DATA KESEHATAN",
+      description:
+        "Sistem integrasi data kesehatan nasional yang menyajikan informasi komprehensif melalui dashboard analitik yang terstandarisasi."
+    }
   ]
 };
+
+
 
 export default function InovasiKesehatanSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -75,8 +86,11 @@ export default function InovasiKesehatanSection() {
     <section className="container mx-auto px-4 py-16">
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-3xl font-bold text-primary">INOVASI KESEHATAN</h2>
-        <button className="text-primary hover:underline font-semibold">
-          Lihat Detail →
+        <button className="bg-white border-2 border-primary text-primary px-6 py-2.5 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-sm font-semibold whitespace-nowrap flex items-center gap-2">
+          Lihat Detail
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
       <p className="text-gray-600 mb-8">

@@ -9,7 +9,7 @@ export default function MarqueeBar() {
 
   return (
     <div className="bg-primary/10 text-primary py-2 overflow-hidden border-b border-primary/20">
-      <div className="animate-marquee whitespace-nowrap">
+      <div className="animate-marquee whitespace-nowrap text-sm">
         <span className="inline-block px-4">
           <span className="font-bold mr-4">📢 INFORMASI TERKINI:</span>
           {newsItems.map((item, index) => (

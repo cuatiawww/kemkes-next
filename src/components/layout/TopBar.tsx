@@ -40,28 +40,26 @@ export default function TopBar() {
   const currentLanguage = languages.find((lang) => lang.code === selectedLang);
 
   return (
-    <div className="bg-gradient-to-r from-primary to-primary-dark text-white">
+    <div className="bg-cover bg-center text-white" style={{ backgroundImage: 'url(/bg_kemkes.webp)' }}>
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Left Side - Logo & Tagline */}
           <div className="flex items-center gap-3">
             <a href="/" className="flex items-center gap-3 group">
-              <div className="bg-white p-2 rounded-lg transform transition-transform group-hover:scale-110">
-                <img
-                  src="https://kemkes.go.id/image/images/logo_kemkes_jadi.png"
-                  alt="Logo Kementerian Kesehatan RI"
-                  className="h-10 w-auto"
-                />
-              </div>
-              <div className="hidden md:block">
-                <h1 className="text-sm font-medium">Generasi Sehat, Masa Depan Hebat</h1>
-              </div>
+              <img
+                src="/kemkes.png"
+                alt="Logo Kementerian Kesehatan RI"
+                className="h-20 w-auto transform transition-transform group-hover:scale-110"
+              />
             </a>
           </div>
 
           {/* Right Side - Search, Language, Profile */}
           <div className="flex items-center gap-3">
             {/* Search Bar */}
+            <div className="hidden md:block">
+                <h1 className="text-lg font-medium italic">Generasi Sehat, Masa Depan Hebat</h1>
+              </div>
             <div className="hidden md:flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 w-64">
               <input
                 type="search"
@@ -123,10 +121,10 @@ export default function TopBar() {
               )}
             </div>
 
-            {/* Profile Button */}
+            {/* Profile Button
             <button className="bg-yellow-400 text-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-yellow-300 transition-all transform hover:scale-110" aria-label="Profile">
               <UserCircleIcon className="w-6 h-6" />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

@@ -2,22 +2,12 @@
 
 import { useState, useRef, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon, MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import {
-  HeartIcon,
-  BeakerIcon,
-  UserGroupIcon,
-  DocumentTextIcon,
-  ShieldCheckIcon,
-  BuildingOffice2Icon,
-  ClipboardDocumentCheckIcon,
-  ChartBarIcon
-} from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 
 const layananData = [
   {
     id: 1,
-    icon: DocumentTextIcon,
+    icon: "./layanan/1.svg",
     title: "SATUSEHAT",
     description: "Sistem data kesehatan terpadu untuk integrasi informasi kesehatan nasional",
     category: "Digital",
@@ -25,7 +15,7 @@ const layananData = [
   },
   {
     id: 2,
-    icon: ShieldCheckIcon,
+    icon: "./layanan/2.svg",
     title: "PENANGGULANGAN PENYAKIT",
     description: "Layanan kesehatan preventif dan penanggulangan penyakit menular",
     category: "Kesehatan",
@@ -33,7 +23,7 @@ const layananData = [
   },
   {
     id: 3,
-    icon: BeakerIcon,
+    icon: "./layanan/3.svg",
     title: "FARMASI DAN ALAT KESEHATAN",
     description: "Pengelolaan farmasi nasional dan distribusi alat kesehatan",
     category: "Farmasi",
@@ -41,7 +31,7 @@ const layananData = [
   },
   {
     id: 4,
-    icon: HeartIcon,
+    icon: "./layanan/4.svg",
     title: "KEBIJAKAN KESEHATAN",
     description: "Program kesehatan keluarga dan kebijakan kesehatan masyarakat",
     category: "Kebijakan",
@@ -49,35 +39,27 @@ const layananData = [
   },
   {
     id: 5,
-    icon: UserGroupIcon,
-    title: "PANTAUAN KEJADIAN KRISIS KESEHATAN",
-    description: "Monitoring dan dukungan program kesehatan darurat",
-    category: "Kesehatan",
-    keywords: ["krisis", "darurat", "monitoring", "pantauan"]
-  },
-  {
-    id: 6,
-    icon: BuildingOffice2Icon,
+    icon: "./layanan/5.svg",
     title: "PELAYANAN KESEHATAN RUJUKAN",
-    description: "Sistem rujukan dan pelayanan kesehatan tingkat lanjut",
-    category: "Pelayanan",
+    description: "Layanan rujukan kesehatan untuk fasilitas kesehatan tingkat lanjut",
+    category: "Kesehatan",
     keywords: ["rujukan", "rumah sakit", "pelayanan", "kesehatan"]
   },
   {
-    id: 7,
-    icon: ClipboardDocumentCheckIcon,
+    id: 6,
+    icon: "./layanan/6.svg",
     title: "SERTIFIKASI KESEHATAN",
-    description: "Layanan sertifikasi dan perizinan kesehatan",
+    description: "Penerbitan sertifikat dan izin praktik tenaga kesehatan",
     category: "Administrasi",
-    keywords: ["sertifikat", "izin", "perizinan", "legalisir"]
+    keywords: ["sertifikat", "izin", "tenaga", "kesehatan"]
   },
   {
-    id: 8,
-    icon: ChartBarIcon,
-    title: "DATA DAN INFORMASI KESEHATAN",
-    description: "Pusat data dan informasi kesehatan nasional",
+    id: 7,
+    icon: "./layanan/7.svg",
+    title: "DATA INFORMASI KESEHATAN",
+    description: "Portal data dan informasi kesehatan nasional",
     category: "Digital",
-    keywords: ["data", "informasi", "statistik", "laporan"]
+    keywords: ["data", "informasi", "statistik", "kesehatan"]
   },
 ];
 
@@ -151,14 +133,14 @@ export default function LayananSection() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="bg-gradient-to-br from-primary to-secondary rounded-3xl p-12 shadow-2xl">
+        <div className="bg-secondary rounded-3xl p-12">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">
               LAYANAN KEMENTERIAN KESEHATAN
             </h2>
             <p className="text-white/90 text-lg max-w-3xl mx-auto">
               Akses berbagai layanan resmi Kementerian Kesehatan RI untuk
-              mendukung kebutuhan informasi dan pelayanan kesehatan masyarakat
+              mendukung kebutuhan informasi dan pelayanan kesehatan masyarakat.
             </p>
 
             {/* Search Section */}
@@ -198,15 +180,18 @@ export default function LayananSection() {
                         {searchResults.length} hasil ditemukan
                       </p>
                       {searchResults.slice(0, 5).map((layanan) => {
-                        const Icon = layanan.icon;
                         return (
                           <button
                             key={layanan.id}
                             onClick={() => handleSelectSuggestion(layanan)}
                             className="w-full text-left px-4 py-3 hover:bg-gray-50 rounded-xl transition-colors flex items-center gap-3"
                           >
-                            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                              <Icon className="w-5 h-5 text-primary" />
+                            <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
+                              <img
+                                src={layanan.icon}
+                                alt={layanan.title}
+                                className="w-full h-full object-contain"
+                              />
                             </div>
                             <div className="flex-1 min-w-0">
                               <p className="text-sm font-semibold text-gray-800 truncate">
@@ -216,9 +201,6 @@ export default function LayananSection() {
                                 {layanan.description}
                               </p>
                             </div>
-                            <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
-                              {layanan.category}
-                            </span>
                           </button>
                         );
                       })}
@@ -254,27 +236,25 @@ export default function LayananSection() {
                     Tutup
                   </button>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                   {searchResults.map((layanan) => {
-                    const Icon = layanan.icon;
                     return (
                       <div
                         key={layanan.id}
-                        className="bg-white rounded-xl p-6 hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        className="bg-white rounded-[30px] cursor-pointer flex items-center justify-center mx-auto"
+                        style={{ width: '246px', height: '263px', paddingTop: '57px', paddingRight: '43px', paddingBottom: '57px', paddingLeft: '43px' }}
                       >
-                        <div className="flex flex-col items-center text-center">
-                          <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                            <Icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
+                        <div className="flex flex-col items-center text-center" style={{ gap: '29px' }}>
+                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                            <img
+                              src={layanan.icon}
+                              alt={layanan.title}
+                              className="w-full h-full object-contain"
+                            />
                           </div>
-                          <h4 className="text-sm font-bold text-gray-800 mb-2 uppercase">
+                          <h4 className="text-sm font-semibold uppercase leading-tight line-clamp-2 w-full" style={{ color: '#666666' }}>
                             {layanan.title}
                           </h4>
-                          <p className="text-xs text-gray-600 line-clamp-2 mb-2">
-                            {layanan.description}
-                          </p>
-                          <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
-                            {layanan.category}
-                          </span>
                         </div>
                       </div>
                     );
@@ -295,7 +275,7 @@ export default function LayananSection() {
                   : "opacity-50 cursor-not-allowed"
               )}
             >
-              <ChevronLeftIcon className="w-6 h-6 text-primary" />
+              <ChevronLeftIcon className="w-6 h-6 text-secondary" />
             </button>
 
             <div className="overflow-hidden">
@@ -306,23 +286,23 @@ export default function LayananSection() {
                 }}
               >
                 {layananData.map((layanan) => {
-                  const Icon = layanan.icon;
                   return (
                     <div
                       key={layanan.id}
-                      className="flex-shrink-0 w-1/5 min-w-[200px]"
+                      className="flex-shrink-0 w-1/5 min-w-[246px]"
                     >
-                      <div className="group bg-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full">
-                        <div className="flex flex-col items-center text-center">
-                          <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                            <Icon className="w-10 h-10 text-primary group-hover:text-white transition-colors" />
+                      <div className="bg-white rounded-[30px] cursor-pointer flex items-center justify-center" style={{ width: '246px', height: '263px', paddingTop: '57px', paddingRight: '43px', paddingBottom: '57px', paddingLeft: '43px' }}>
+                        <div className="flex flex-col items-center text-center" style={{ gap: '29px' }}>
+                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                            <img
+                              src={layanan.icon}
+                              alt={layanan.title}
+                              className="w-full h-full object-contain"
+                            />
                           </div>
-                          <h3 className="text-sm font-bold text-gray-800 mb-2 uppercase">
+                          <h3 className="text-sm font-semibold uppercase leading-tight line-clamp-2 w-full" style={{ color: '#666666' }}>
                             {layanan.title}
                           </h3>
-                          {/* <p className="text-xs text-gray-600">
-                            {layanan.description}
-                          </p> */}
                         </div>
                       </div>
                     </div>
@@ -341,7 +321,7 @@ export default function LayananSection() {
                   : "opacity-50 cursor-not-allowed"
               )}
             >
-              <ChevronRightIcon className="w-6 h-6 text-primary" />
+              <ChevronRightIcon className="w-6 h-6 text-secondary" />
             </button>
           </div>
         </div>

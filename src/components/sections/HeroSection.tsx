@@ -6,23 +6,13 @@ import { useState, useEffect } from "react";
 const bannerImages = [
   {
     id: 1,
-    url: "https://kemkes.go.id/app_asset/image_content_download/176294536069146950e1e0f1.47384635.jpgp",
+    url: "/banner2.jpg",
     alt: "Healthcare Professional in Indonesia"
   },
   {
     id: 2,
-    url: "https://kemkes.go.id/app_asset/image_content_download/176294536069146950e1e0f1.47384635.jpg",
-    alt: "Medical Consultation"
-  },
-  {
-    id: 3,
-    url: "https://kemkes.go.id/app_asset/image_content_download/176294536069146950e1e0f1.47384635.jpg",
-    alt: "Community Health Service"
-  },
-  {
-    id: 4,
-    url: "https://kemkes.go.id/app_asset/image_content_download/176294536069146950e1e0f1.47384635.jpg",
-    alt: "Healthcare Technology"
+    url: "/banner.png",
+    alt: "Hackathon Kesehatan 2025"
   }
 ];
 

@@ -14,26 +14,22 @@ import "swiper/css/pagination";
 const mediaPublikasiData = [
   {
     id: 1,
-    image:
-      "https://kemkes.go.id/app_asset/image_content/1763520228691d2ee46d47d1.20553463.jpg",
+    image: "./publikasi_1.webp",
     title: "JANGAN TUNGGU DATANG: DETEKSI KANKER PAYUDARA SEKARANG!",
   },
   {
     id: 2,
-    image:
-      "https://kemkes.go.id/app_asset/image_content/1763520228691d2ee46d47d1.20553463.jpg",
+    image: "./publikasi_2.webp",
     title: "Program Kesehatan Ibu dan Anak",
   },
   {
     id: 3,
-    image:
-      "https://kemkes.go.id/app_asset/image_content/1763520228691d2ee46d47d1.20553463.jpg",
+    image: "./publikasi_3.webp",
     title: "Vaksinasi COVID-19 Dosis Booster",
   },
   {
     id: 4,
-    image:
-      "https://kemkes.go.id/app_asset/image_content/1763520228691d2ee46d47d1.20553463.jpg",
+    image: "./publikasi_4.webp",
     title: "Gerakan Hidup Sehat Masyarakat",
   },
 ];
@@ -41,29 +37,25 @@ const mediaPublikasiData = [
 const fotoKegiatanData = [
   {
     id: 1,
-    image:
-      "https://kemkes.go.id/app_asset/image_content/1763520228691d2ee46d47d1.20553463.jpg",
+    image: "./kegiatan_1.webp",
     title: "Pembukaan Pameran Karya Foto",
     date: "5 Maret 2025",
   },
   {
     id: 2,
-    image:
-      "https://kemkes.go.id/app_asset/image_content/1763520228691d2ee46d47d1.20553463.jpg",
+    image: "./kegiatan_2.webp",
     title: "Kunjungan Kerja ke Puskesmas",
     date: "10 Maret 2025",
   },
   {
     id: 3,
-    image:
-      "https://kemkes.go.id/app_asset/image_content/1763520228691d2ee46d47d1.20553463.jpg",
+    image: "./kegiatan_3.webp",
     title: "Sosialisasi Program Kesehatan",
     date: "15 Maret 2025",
   },
   {
     id: 4,
-    image:
-      "https://kemkes.go.id/app_asset/image_content/1763520228691d2ee46d47d1.20553463.jpg",
+    image: "./kegiatan_4.webp",
     title: "Rapat Koordinasi Dinas Kesehatan",
     date: "20 Maret 2025",
   },
@@ -79,26 +71,31 @@ export default function MediaFotoSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Media Publikasi */}
           <div>
-            <h2 className="text-2xl font-bold text-primary mb-6">
+            <h2 className="text-2xl font-bold text-primary mb-4">
               MEDIA PUBLIKASI
             </h2>
+            <p className="text-gray-600 text-sm mb-6 leading-relaxed h-10">
+              Kumpulan materi publikasi dan kampanye kesehatan<br />masyarakat dari Kementerian Kesehatan RI
+            </p>
 
             <div className="relative">
-              {/* Custom Navigation Buttons */}
+              {/* Custom Navigation Buttons with Gradient Background */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black/30 to-transparent z-10 pointer-events-none rounded-l-xl" />
               <button
                 onClick={() => mediaPublikasiSwiperRef.current?.slidePrev()}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 transition-all"
                 aria-label="Previous slide"
               >
-                <ChevronLeftIcon className="w-6 h-6 text-primary" />
+                <ChevronLeftIcon className="w-6 h-6 text-white" />
               </button>
 
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black/30 to-transparent z-10 pointer-events-none rounded-r-xl" />
               <button
                 onClick={() => mediaPublikasiSwiperRef.current?.slideNext()}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 transition-all"
                 aria-label="Next slide"
               >
-                <ChevronRightIcon className="w-6 h-6 text-primary" />
+                <ChevronRightIcon className="w-6 h-6 text-white" />
               </button>
 
               <Swiper
@@ -143,26 +140,31 @@ export default function MediaFotoSection() {
 
           {/* Foto Kegiatan */}
           <div>
-            <h2 className="text-2xl font-bold text-primary mb-6">
+            <h2 className="text-2xl font-bold text-primary mb-4">
               FOTO KEGIATAN
             </h2>
+            <p className="text-gray-600 text-sm mb-6 leading-relaxed h-10">
+              Dokumentasi berbagai kegiatan dan program Kementerian<br />Kesehatan dalam upaya meningkatkan kesehatan masyarakat
+            </p>
 
             <div className="relative">
-              {/* Custom Navigation Buttons */}
+              {/* Custom Navigation Buttons with Gradient Background */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black/30 to-transparent z-10 pointer-events-none rounded-l-xl" />
               <button
                 onClick={() => fotoKegiatanSwiperRef.current?.slidePrev()}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 transition-all"
                 aria-label="Previous slide"
               >
-                <ChevronLeftIcon className="w-6 h-6 text-primary" />
+                <ChevronLeftIcon className="w-6 h-6 text-white" />
               </button>
 
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black/30 to-transparent z-10 pointer-events-none rounded-r-xl" />
               <button
                 onClick={() => fotoKegiatanSwiperRef.current?.slideNext()}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 transition-all"
                 aria-label="Next slide"
               >
-                <ChevronRightIcon className="w-6 h-6 text-primary" />
+                <ChevronRightIcon className="w-6 h-6 text-white" />
               </button>
 
               <Swiper
