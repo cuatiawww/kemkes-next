@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const layananData = [
   {
     id: 1,
-    icon: "./LAYANAN/1.svg",
+    icon: "/LAYANAN/1.svg",
     title: "SATUSEHAT",
     description: "Sistem data kesehatan terpadu untuk integrasi informasi kesehatan nasional",
     category: "Digital",
@@ -15,7 +15,7 @@ const layananData = [
   },
   {
     id: 2,
-    icon: "./LAYANAN/2.svg",
+    icon: "/LAYANAN/2.svg",
     title: "PENANGGULANGAN PENYAKIT",
     description: "Layanan kesehatan preventif dan penanggulangan penyakit menular",
     category: "Kesehatan",
@@ -23,7 +23,7 @@ const layananData = [
   },
   {
     id: 3,
-    icon: "./LAYANAN/3.svg",
+    icon: "/LAYANAN/3.svg",
     title: "FARMASI DAN ALAT KESEHATAN",
     description: "Pengelolaan farmasi nasional dan distribusi alat kesehatan",
     category: "Farmasi",
@@ -31,7 +31,7 @@ const layananData = [
   },
   {
     id: 4,
-    icon: "./LAYANAN/4.svg",
+    icon: "/LAYANAN/4.svg",
     title: "KEBIJAKAN KESEHATAN",
     description: "Program kesehatan keluarga dan kebijakan kesehatan masyarakat",
     category: "Kebijakan",
@@ -39,7 +39,7 @@ const layananData = [
   },
   {
     id: 5,
-    icon: "./LAYANAN/5.svg",
+    icon: "/LAYANAN/5.svg",
     title: "PELAYANAN KESEHATAN RUJUKAN",
     description: "Layanan rujukan kesehatan untuk fasilitas kesehatan tingkat lanjut",
     category: "Kesehatan",
@@ -47,7 +47,7 @@ const layananData = [
   },
   {
     id: 6,
-    icon: "./LAYANAN/6.svg",
+    icon: "/LAYANAN/6.svg",
     title: "SERTIFIKASI KESEHATAN",
     description: "Penerbitan sertifikat dan izin praktik tenaga kesehatan",
     category: "Administrasi",
@@ -55,7 +55,7 @@ const layananData = [
   },
   {
     id: 7,
-    icon: "./LAYANAN/7.svg",
+    icon: "/LAYANAN/7.svg",
     title: "DATA INFORMASI KESEHATAN",
     description: "Portal data dan informasi kesehatan nasional",
     category: "Digital",
