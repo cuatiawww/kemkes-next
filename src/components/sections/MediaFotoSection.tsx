@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import type { Swiper as SwiperType } from "swiper";
+import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -14,22 +15,22 @@ import "swiper/css/pagination";
 const mediaPublikasiData = [
   {
     id: 1,
-    image: "./publikasi_1.webp",
+    image: "/publikasi_1.webp",
     title: "JANGAN TUNGGU DATANG: DETEKSI KANKER PAYUDARA SEKARANG!",
   },
   {
     id: 2,
-    image: "./publikasi_2.webp",
+    image: "/publikasi_2.webp",
     title: "Program Kesehatan Ibu dan Anak",
   },
   {
     id: 3,
-    image: "./publikasi_3.webp",
+    image: "/publikasi_3.webp",
     title: "Vaksinasi COVID-19 Dosis Booster",
   },
   {
     id: 4,
-    image: "./publikasi_4.webp",
+    image: "/publikasi_4.webp",
     title: "Gerakan Hidup Sehat Masyarakat",
   },
 ];
@@ -37,25 +38,25 @@ const mediaPublikasiData = [
 const fotoKegiatanData = [
   {
     id: 1,
-    image: "./kegiatan_1.webp",
+    image: "/kegiatan_1.webp",
     title: "Pembukaan Pameran Karya Foto",
     date: "5 Maret 2025",
   },
   {
     id: 2,
-    image: "./kegiatan_2.webp",
+    image: "/kegiatan_2.webp",
     title: "Kunjungan Kerja ke Puskesmas",
     date: "10 Maret 2025",
   },
   {
     id: 3,
-    image: "./kegiatan_3.webp",
+    image: "/kegiatan_3.webp",
     title: "Sosialisasi Program Kesehatan",
     date: "15 Maret 2025",
   },
   {
     id: 4,
-    image: "./kegiatan_4.webp",
+    image: "/kegiatan_4.webp",
     title: "Rapat Koordinasi Dinas Kesehatan",
     date: "20 Maret 2025",
   },
@@ -71,9 +72,17 @@ export default function MediaFotoSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Media Publikasi */}
           <div>
-            <h2 className="text-2xl font-bold text-primary mb-4">
-              MEDIA PUBLIKASI
-            </h2>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-2xl font-bold text-primary">
+                MEDIA PUBLIKASI
+              </h2>
+              <button className="border-2 border-primary text-primary px-6 py-2.5 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-sm font-semibold whitespace-nowrap flex items-center gap-2">
+                Lihat Lainnya
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
             <p className="text-gray-600 text-sm mb-6 leading-relaxed h-10">
               Kumpulan materi publikasi dan kampanye kesehatan<br />masyarakat dari Kementerian Kesehatan RI
             </p>
@@ -119,11 +128,12 @@ export default function MediaFotoSection() {
                 {mediaPublikasiData.map((item) => (
                   <SwiperSlide key={item.id}>
                     <div className="relative h-[400px] overflow-hidden rounded-xl group cursor-pointer">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                        style={{
-                          backgroundImage: `url('${item.image}')`,
-                        }}
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -140,9 +150,17 @@ export default function MediaFotoSection() {
 
           {/* Foto Kegiatan */}
           <div>
-            <h2 className="text-2xl font-bold text-primary mb-4">
-              FOTO KEGIATAN
-            </h2>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-2xl font-bold text-primary">
+                FOTO KEGIATAN
+              </h2>
+              <button className="border-2 border-primary text-primary px-6 py-2.5 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-sm font-semibold whitespace-nowrap flex items-center gap-2">
+                Lihat Lainnya
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
             <p className="text-gray-600 text-sm mb-6 leading-relaxed h-10">
               Dokumentasi berbagai kegiatan dan program Kementerian<br />Kesehatan dalam upaya meningkatkan kesehatan masyarakat
             </p>
@@ -188,11 +206,12 @@ export default function MediaFotoSection() {
                 {fotoKegiatanData.map((item) => (
                   <SwiperSlide key={item.id}>
                     <div className="relative h-[400px] overflow-hidden rounded-xl group cursor-pointer">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                        style={{
-                          backgroundImage: `url('${item.image}')`,
-                        }}
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6">

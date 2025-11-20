@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const inovasiData = {
   featured: {
     id: 1,
-    image: "./layanan/inovasi.png",
+    image: "/LAYANAN/inovasi.png",
     title: "INOVASI KESEHATAN",
     description:
       "Rangkaian terobosan dan pengembangan solusi baru untuk meningkatkan kualitas pelayanan dan sistem kesehatan di Indonesia."
@@ -15,43 +16,43 @@ const inovasiData = {
   items: [
     {
       id: 1,
-      image: "./Rectangle 210.png",
+      image: "/Rectangle 210.png",
       title: "SATUSEHAT",
       description:
         "Platform nasional yang mengintegrasikan data kesehatan individu antar fasilitas pelayanan kesehatan melalui Rekam Medis Elektronik (RME)."
     },
     {
       id: 2,
-      image: "./Image 2.png",
+      image: "/Image 2.png",
       title: "BIOMEDICAL AND GENOME SCIENCE INITIATIVE (BGSI)",
       description:
         "Program inisiatif nasional yang mengembangkan layanan precision medicine melalui riset biomedis dan genomik tingkat lanjut."
     },
     {
       id: 3,
-      image: "./Image 3.png",
+      image: "/Image 3.png",
       title: "SATU DATA KESEHATAN",
       description:
         "Sistem integrasi data kesehatan nasional yang menyajikan informasi komprehensif melalui dashboard analitik yang terstandarisasi."
     },
 
     {
-      id: 1,
-      image: "./Rectangle 210.png",
+      id: 4,
+      image: "/Rectangle 210.png",
       title: "SATUSEHAT",
       description:
         "Platform nasional yang mengintegrasikan data kesehatan individu antar fasilitas pelayanan kesehatan melalui Rekam Medis Elektronik (RME)."
     },
     {
-      id: 2,
-      image: "./Image 2.png",
+      id: 5,
+      image: "/Image 2.png",
       title: "BIOMEDICAL AND GENOME SCIENCE INITIATIVE (BGSI)",
       description:
         "Program inisiatif nasional yang mengembangkan layanan precision medicine melalui riset biomedis dan genomik tingkat lanjut."
     },
     {
-      id: 3,
-      image: "./Image 3.png",
+      id: 6,
+      image: "/Image 3.png",
       title: "SATU DATA KESEHATAN",
       description:
         "Sistem integrasi data kesehatan nasional yang menyajikan informasi komprehensif melalui dashboard analitik yang terstandarisasi."
@@ -85,19 +86,6 @@ export default function InovasiKesehatanSection() {
   return (
     <section className="bg-gray-100 py-16">
       <div className="container mx-auto px-4">
-      {/* <div className="flex items-center justify-between mb-8">
-        <h2 className="text-3xl font-bold text-primary">INOVASI KESEHATAN</h2>
-        <button className="bg-white border-2 border-primary text-primary px-6 py-2.5 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 text-sm font-semibold whitespace-nowrap flex items-center gap-2">
-          Lihat Detail
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-      </div>
-      <p className="text-gray-600 mb-8">
-        Kumpulan teknologi dan pengembangan inovasi kesehatan yang berpengaruh
-        terhadap kualitas dan mutu dalam kesehatan di Indonesia
-      </p> */}
       <div className="flex items-center justify-between mb-2">
         <h2 className="text-3xl font-bold text-primary">
           Inovasi Kesehatan
@@ -118,9 +106,12 @@ export default function InovasiKesehatanSection() {
         {/* Left Column - Featured */}
         <div>
           <div className="relative rounded-2xl overflow-hidden shadow-xl group cursor-pointer h-full min-h-[500px]">
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
-              style={{ backgroundImage: `url('${inovasiData.featured.image}')` }}
+            <Image
+              src={inovasiData.featured.image}
+              alt={inovasiData.featured.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
 
@@ -182,9 +173,12 @@ export default function InovasiKesehatanSection() {
               >
                 <div className="flex gap-5">
                   <div className="relative flex-shrink-0 w-36 h-36 rounded-xl overflow-hidden shadow-md group-hover:shadow-2xl transition-all duration-300">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                      style={{ backgroundImage: `url('${item.image}')` }}
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="144px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/30 transition-colors duration-300" />
 

@@ -211,7 +211,7 @@ export default function LayananSection() {
             </p>
 
             {/* Search Section */}
-            <div className="mt-4 md:mt-6 max-w-2xl mx-auto px-2 md:px-0" ref={searchRef}>
+            <div className="mt-4 mb-24 md:mt-6 max-w-2xl mx-auto px-2 md:px-0" ref={searchRef}>
               <div className="relative">
                 <div className="relative">
                   <MagnifyingGlassIcon className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 w-4 md:w-5 h-4 md:h-5 text-gray-400" />
@@ -401,8 +401,8 @@ export default function LayananSection() {
                             />
                           </div>
                           <h3 className={cn(
-                            "font-semibold uppercase leading-tight line-clamp-2 w-full",
-                            isMobile ? "text-xs" : "text-sm"
+                            "font-semibold uppercase text-xl leading-tight line-clamp-2 w-full",
+                            isMobile ? "text-sm" : "text-lg"
                           )} style={{ color: '#666666' }}>
                             {layanan.title}
                           </h3>
