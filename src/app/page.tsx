@@ -11,52 +11,65 @@ import MediaFotoSection from "@/components/sections/MediaFotoSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Beranda",
+  title: "Beranda - Portal Resmi Kementerian Kesehatan RI",
   description:
-    "Selamat kepada tim terpilih di Grand Final Indonesia Healthcare AI Hackathon 2025. Tim terpilih yang berhasil menghadirkan ide dan solusi layanan kesehatan berbasis AI untuk Indonesia.",
+    "Portal resmi Kementerian Kesehatan Republik Indonesia. Akses informasi kesehatan, layanan publik, berita terkini, dan inovasi kesehatan untuk masyarakat Indonesia.",
+  keywords: [
+    "Kementerian Kesehatan",
+    "Portal Kemenkes",
+    "Layanan Kesehatan",
+    "SATUSEHAT",
+    "Penanggulangan Penyakit",
+    "Farmasi dan Alat Kesehatan",
+    "Berita Kesehatan",
+    "Rilis Kemenkes",
+    "Program Kesehatan",
+    "Pelayanan Kesehatan Rujukan",
+  ],
   openGraph: {
-    title: "Indonesia Healthcare AI Hackathon 2025 - Kemenkes RI",
+    title: "Beranda - Kementerian Kesehatan RI",
     description:
-      "Selamat kepada tim terpilih di Grand Final Indonesia Healthcare AI Hackathon 2025",
-    images: ["/og-hackathon.jpg"],
+      "Portal resmi Kementerian Kesehatan RI. Informasi kesehatan, layanan publik, dan program kesehatan nasional untuk Indonesia yang lebih sehat.",
+    images: ["/og-image.jpg"],
+    url: "https://kemkes-next.vercel.app",
+  },
+  alternates: {
+    canonical: "https://kemkes-next.vercel.app",
   },
 };
 
 export default function Home() {
   return (
     <>
-      {/* Structured Data for Event */}
+      {/* Structured Data for Government Service */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Event",
-            name: "Indonesia Healthcare AI Hackathon 2025 - Grand Final",
+            "@type": "GovernmentService",
+            name: "Layanan Kementerian Kesehatan RI",
             description:
-              "Kompetisi inovasi kesehatan berbasis kecerdasan buatan untuk meningkatkan layanan kesehatan di Indonesia",
-            startDate: "2025-03-15",
-            endDate: "2025-03-17",
-            eventStatus: "https://schema.org/EventScheduled",
-            eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-            location: {
-              "@type": "Place",
-              name: "Kementerian Kesehatan RI",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Jl. HR. Rasuna Said Blok X5 Kav. 4-9",
-                addressLocality: "Jakarta Selatan",
-                addressRegion: "DKI Jakarta",
-                postalCode: "12950",
-                addressCountry: "ID",
-              },
-            },
-            organizer: {
+              "Layanan publik dan informasi kesehatan dari Kementerian Kesehatan Republik Indonesia termasuk SATUSEHAT, Penanggulangan Penyakit, Farmasi dan Alat Kesehatan, serta berbagai program kesehatan nasional",
+            provider: {
               "@type": "GovernmentOrganization",
               name: "Kementerian Kesehatan Republik Indonesia",
-              url: "https://kemkes.go.id",
+              url: "https://kemkes-next.vercel.app",
             },
-            image: ["https://kemkes.go.id/event-hackathon-2025.jpg"],
+            areaServed: {
+              "@type": "Country",
+              name: "Indonesia",
+            },
+            audience: {
+              "@type": "Audience",
+              audienceType: "General Public",
+            },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://kemkes-next.vercel.app",
+              servicePhone: "+62-21-5201590",
+              availableLanguage: ["id", "en"],
+            },
           }),
         }}
       />
@@ -73,7 +86,36 @@ export default function Home() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Beranda",
-                item: "https://kemkes.go.id",
+                item: "https://kemkes-next.vercel.app",
+              },
+            ],
+          }),
+        }}
+      />
+
+      {/* Structured Data for FAQPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Apa itu SATUSEHAT?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "SATUSEHAT adalah sistem data kesehatan terpadu untuk integrasi informasi kesehatan nasional yang dikembangkan oleh Kementerian Kesehatan RI.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Layanan apa saja yang tersedia di Kemenkes RI?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Kemenkes RI menyediakan berbagai layanan seperti SATUSEHAT, Penanggulangan Penyakit, Farmasi dan Alat Kesehatan, Kebijakan Kesehatan, Pelayanan Kesehatan Rujukan, Sertifikasi Kesehatan, dan Data Informasi Kesehatan.",
+                },
               },
             ],
           }),
@@ -81,21 +123,17 @@ export default function Home() {
       />
 
       <main role="main" itemScope itemType="https://schema.org/WebPage">
+        <meta itemProp="name" content="Beranda - Kementerian Kesehatan RI" />
+        <meta
+          itemProp="description"
+          content="Portal resmi Kementerian Kesehatan RI untuk layanan publik dan informasi kesehatan masyarakat Indonesia"
+        />
+        <meta itemProp="url" content="https://kemkes-next.vercel.app" />
+
         <TopBar />
         <Navbar />
         <MarqueeBar />
-
-        <article itemScope itemType="https://schema.org/Article">
-          <meta itemProp="headline" content="Indonesia Healthcare AI Hackathon 2025 Grand Final" />
-          <meta
-            itemProp="description"
-            content="Selamat kepada tim terpilih di Grand Final Indonesia Healthcare AI Hackathon 2025"
-          />
-          <meta itemProp="datePublished" content="2025-01-15" />
-          <meta itemProp="author" content="Kementerian Kesehatan RI" />
-          
-          <HeroSection />
-        </article>
+        <HeroSection />
 
         <MainContentSection />
         <MediaFotoSection />

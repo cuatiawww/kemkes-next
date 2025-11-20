@@ -41,7 +41,7 @@ export default function Navbar() {
                     setActiveItem(item.name);
                   }}
                   className={`
-                    relative flex items-center gap-2 px-6 py-4 text-xs font-semibold transition-all duration-300
+                    relative flex items-center gap-2 px-6 py-4 text-sm font-semibold transition-all duration-300
                     ${
                       activeItem === item.name
                         ? "text-primary bg-primary/5"
@@ -49,7 +49,7 @@ export default function Navbar() {
                     }
                   `}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-5 h-5" />
                   <span>{item.name}</span>
                   {activeItem === item.name && (
                     <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-t-full" />
@@ -61,14 +61,21 @@ export default function Navbar() {
         </ul>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center justify-between py-3">
+        <div className="lg:hidden flex items-center justify-end py-3">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-gray-600"
+            className="p-2 text-gray-600 hover:text-primary transition-colors"
+            aria-label="Toggle menu"
           >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            {mobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
 

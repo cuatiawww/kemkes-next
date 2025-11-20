@@ -10,13 +10,13 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kemkes.go.id"),
+  metadataBase: new URL("https://kemkes-next.vercel.app"),
   title: {
     default: "Kemenkes RI - Generasi Sehat, Masa Depan Hebat",
     template: "%s | Kemenkes RI",
   },
   description:
-    "Kementerian Kesehatan Republik Indonesia - Portal resmi informasi kesehatan, layanan publik, program kesehatan nasional, dan inovasi kesehatan berbasis AI untuk Indonesia yang lebih sehat.",
+    "Kementerian Kesehatan Republik Indonesia - Portal resmi informasi kesehatan, layanan publik, program kesehatan nasional, dan inovasi kesehatan untuk Indonesia yang lebih sehat.",
   keywords: [
     "Kementerian Kesehatan",
     "Kemenkes",
@@ -24,10 +24,14 @@ export const metadata: Metadata = {
     "Layanan Kesehatan",
     "Program Kesehatan",
     "Healthcare Indonesia",
-    "AI Healthcare",
-    "Indonesia Healthcare AI Hackathon",
     "Inovasi Kesehatan",
     "Pelayanan Kesehatan",
+    "SATUSEHAT",
+    "Farmasi",
+    "Penanggulangan Penyakit",
+    "Kebijakan Kesehatan",
+    "Rilis Kemenkes",
+    "Berita Kesehatan",
   ],
   authors: [{ name: "Kementerian Kesehatan Republik Indonesia" }],
   creator: "Kementerian Kesehatan Republik Indonesia",
@@ -40,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://kemkes.go.id",
+    url: "https://kemkes-next.vercel.app",
     title: "Kemenkes RI - Generasi Sehat, Masa Depan Hebat",
     description:
       "Portal resmi Kementerian Kesehatan Republik Indonesia - Informasi kesehatan, layanan publik, dan program kesehatan nasional.",
@@ -78,10 +82,10 @@ export const metadata: Metadata = {
     yandex: "your-yandex-verification-code",
   },
   alternates: {
-    canonical: "https://kemkes.go.id",
+    canonical: "https://kemkes-next.vercel.app",
     languages: {
-      "id-ID": "https://kemkes.go.id",
-      "en-US": "https://kemkes.go.id/en",
+      "id-ID": "https://kemkes-next.vercel.app",
+      "en-US": "https://kemkes-next.vercel.app/en",
     },
   },
   category: "Health & Government",
@@ -114,8 +118,8 @@ export default function RootLayout({
               "@type": "GovernmentOrganization",
               name: "Kementerian Kesehatan Republik Indonesia",
               alternateName: "Kemenkes RI",
-              url: "https://kemkes.go.id",
-              logo: "https://kemkes.go.id/logo.png",
+              url: "https://kemkes-next.vercel.app",
+              logo: "https://kemkes-next.vercel.app/logo.png",
               description:
                 "Kementerian Kesehatan Republik Indonesia bertanggung jawab atas kesehatan masyarakat Indonesia",
               address: {
@@ -151,12 +155,12 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Kementerian Kesehatan Republik Indonesia",
-              url: "https://kemkes.go.id",
+              url: "https://kemkes-next.vercel.app",
               potentialAction: {
                 "@type": "SearchAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate: "https://kemkes.go.id/search?q={search_term_string}",
+                  urlTemplate: "https://kemkes-next.vercel.app/search?q={search_term_string}",
                 },
                 "query-input": "required name=search_term_string",
               },
