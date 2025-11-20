@@ -176,19 +176,23 @@ export default function MainContentSection() {
                 {rilisData.items.map((item) => (
                   <article
                     key={item.id}
-                                          className="bg-white rounded-2xl border border-gray-200 hover:border-gray-300 transition-all duration-300 overflow-hidden group cursor-pointer"
+                                          className="bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:scale-105 p-4"
 >
-                    <div className="relative h-48 overflow-hidden">
-                      <div
-                        className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                        style={{ backgroundImage: `url('${item.image}')` }}
+                    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
+                      <div className="absolute top-2 left-2 bg-primary text-white text-xs font-semibold px-2 py-1 rounded">
+                        313 × 238
+                      </div>
                     </div>
-                    <div className="p-4">
-                      <p className="text-sm text-gray-800 font-semibold mb-2 line-clamp-2">
+                    <div className="px-2">
+                      <p className="text-base text-gray-800 font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-300">
                         {item.title}
                       </p>
-                      <div className="flex items-center gap-1 text-xs text-gray-500">
+                      <div className="flex items-center gap-2 text-sm text-gray-500">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
