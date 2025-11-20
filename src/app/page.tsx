@@ -7,6 +7,7 @@ import MainContentSection from "@/components/sections/MainContentSection";
 import LayananSection from "@/components/sections/LayananSection";
 import InovasiKesehatanSection from "@/components/sections/InovasiKesehatanSection";
 import LayananDigitalSection from "@/components/sections/LayananDigitalSection";
+import MediaFotoSection from "@/components/sections/MediaFotoSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -97,9 +98,11 @@ export default function Home() {
         </article>
 
         <MainContentSection />
+        <MediaFotoSection />
         <LayananSection />
         <InovasiKesehatanSection />
         <LayananDigitalSection />
+        
 
         <Footer />
       </main>
