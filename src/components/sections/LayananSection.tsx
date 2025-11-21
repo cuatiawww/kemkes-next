@@ -12,7 +12,7 @@ const layananData = [
     title: "SATUSEHAT",
     description: "Sistem data kesehatan terpadu untuk integrasi informasi kesehatan nasional",
     category: "Digital",
-    keywords: ["data", "kesehatan", "sistem", "digital", "integrasi"]
+    keywords: ["data", "kesehatan", "sistem", "digital", "integrasi", "satu sehat", "satusehat"]
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ const layananData = [
     title: "KEBIJAKAN KESEHATAN",
     description: "Program kesehatan keluarga dan kebijakan kesehatan masyarakat",
     category: "Kebijakan",
-    keywords: ["kebijakan", "program", "keluarga", "masyarakat"]
+    keywords: ["kebijakan", "program", "keluarga", "masyarakat", "posyandu", "germas", "gerakan masyarakat sehat"]
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ const layananData = [
     title: "PELAYANAN KESEHATAN RUJUKAN",
     description: "Layanan rujukan kesehatan untuk fasilitas kesehatan tingkat lanjut",
     category: "Kesehatan",
-    keywords: ["rujukan", "rumah sakit", "pelayanan", "kesehatan"]
+    keywords: ["rujukan", "rumah sakit", "pelayanan", "kesehatan", "kesehatan gratis", "gratis"]
   },
   {
     id: 6,
@@ -61,6 +61,14 @@ const layananData = [
     description: "Portal data dan informasi kesehatan nasional",
     category: "Digital",
     keywords: ["data", "informasi", "statistik", "kesehatan"]
+  },
+  {
+    id: 8,
+    icon: "/LAYANAN/1.svg",
+    title: "MAKANAN BERGIZI GRATIS",
+    description: "Program makanan bergizi gratis untuk peningkatan gizi masyarakat",
+    category: "Program",
+    keywords: ["makanan", "bergizi", "gratis", "gizi", "nutrisi", "makanan bergizi gratis"]
   },
 ];
 
@@ -211,7 +219,7 @@ export default function LayananSection() {
             </p>
 
             {/* Search Section */}
-            <div className="mt-4 mb-24 md:mt-6 max-w-2xl mx-auto px-2 md:px-0" ref={searchRef}>
+            <div className="mt-4 md:mt-6 max-w-2xl lg:max-w-4xl mx-auto px-2 md:px-0" ref={searchRef}>
               <div className="relative">
                 <div className="relative">
                   <MagnifyingGlassIcon className="absolute left-4 md:left-5 top-1/2 -translate-y-1/2 w-4 md:w-5 h-4 md:h-5 text-gray-400" />
@@ -286,54 +294,46 @@ export default function LayananSection() {
                   </div>
                 )}
               </div>
-            </div>
-          </div>
 
-          {/* Search Results Section */}
-          {searchResults.length > 0 && !showSuggestions && (
-            <div className="mb-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-white">
-                    Hasil Pencarian ({searchResults.length})
-                  </h3>
+              {/* Layanan Populer */}
+              <div className="mt-4 mb-20">
+                <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-2">
+                  <span className="text-white text-xs md:text-sm font-medium whitespace-nowrap">Layanan Populer:</span>
                   <button
-                    onClick={handleClearSearch}
-                    className="text-white/80 hover:text-white text-sm flex items-center gap-2"
+                    onClick={() => handleSearch("Satu Sehat")}
+                    className="px-3 md:px-4 py-1.5 bg-white/20 hover:bg-white/30 text-white text-xs md:text-sm rounded-full transition-all backdrop-blur-sm border border-white/30 whitespace-nowrap"
                   >
-                    <XMarkIcon className="w-4 h-4" />
-                    Tutup
+                    Satu Sehat
                   </button>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                  {searchResults.map((layanan) => {
-                    return (
-                      <div
-                        key={layanan.id}
-                        className="bg-white rounded-[30px] cursor-pointer flex items-center justify-center mx-auto"
-                        style={{ width: '246px', height: '263px', paddingTop: '57px', paddingRight: '43px', paddingBottom: '57px', paddingLeft: '43px' }}
-                      >
-                        <div className="flex flex-col items-center text-center" style={{ gap: '29px' }}>
-                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0 relative">
-                            <Image
-                              src={layanan.icon}
-                              alt={layanan.title}
-                              fill
-                              sizes="64px"
-                              className="object-contain"
-                            />
-                          </div>
-                          <h4 className="text-sm font-semibold uppercase leading-tight line-clamp-2 w-full" style={{ color: '#666666' }}>
-                            {layanan.title}
-                          </h4>
-                        </div>
-                      </div>
-                    );
-                  })}
+                  <button
+                    onClick={() => handleSearch("Makanan Bergizi Gratis")}
+                    className="px-3 md:px-4 py-1.5 bg-white/20 hover:bg-white/30 text-white text-xs md:text-sm rounded-full transition-all backdrop-blur-sm border border-white/30 whitespace-nowrap"
+                  >
+                    Makanan Bergizi Gratis
+                  </button>
+                  <button
+                    onClick={() => handleSearch("Posyandu")}
+                    className="px-3 md:px-4 py-1.5 bg-white/20 hover:bg-white/30 text-white text-xs md:text-sm rounded-full transition-all backdrop-blur-sm border border-white/30 whitespace-nowrap"
+                  >
+                    Posyandu
+                  </button>
+                  <button
+                    onClick={() => handleSearch("Germas")}
+                    className="px-3 md:px-4 py-1.5 bg-white/20 hover:bg-white/30 text-white text-xs md:text-sm rounded-full transition-all backdrop-blur-sm border border-white/30 whitespace-nowrap"
+                  >
+                    Germas
+                  </button>
+                  <button
+                    onClick={() => handleSearch("Kesehatan Gratis")}
+                    className="px-3 md:px-4 py-1.5 bg-white/20 hover:bg-white/30 text-white text-xs md:text-sm rounded-full transition-all backdrop-blur-sm border border-white/30 whitespace-nowrap"
+                  >
+                    Kesehatan Gratis
+                  </button>
                 </div>
               </div>
             </div>
-          )}
+          </div>
+
 
           <div className="relative px-2 md:px-0">
             <button

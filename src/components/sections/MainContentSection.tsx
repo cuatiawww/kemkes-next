@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 // Extend Window interface untuk social media embeds
@@ -92,10 +93,18 @@ const socialMediaPlatforms = [
     embedCode: `<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@kemenkesri/video/7574006877755968775" data-video-id="7574006877755968775" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@kemenkesri" href="https://www.tiktok.com/@kemenkesri?refer=embed">@kemenkesri</a> *BENERAN LAST DAY!* <a title="healthies" target="_blank" href="https://www.tiktok.com/tag/healthies?refer=embed">#Healthies</a>, ini kesempatan terakhir buat unjuk karya di Kompetisi Video Kreatif HKN-61. Hari ini penentuannya, dan kamu masih punya waktu sampai nanti malam buat kirim video terbaikmu. Tunggu apalagi? Yuk, cepetan daftar dan upload karyamu lewat QR code yang ada di video. Gas sebelum pintunya bener-bener tutup!  Ayo absen dulu, siapa yang sudah submit?☝️😁 <a title="hkn61" target="_blank" href="https://www.tiktok.com/tag/hkn61?refer=embed">#HKN61</a> <a title="generasisehatmasadepanhebat" target="_blank" href="https://www.tiktok.com/tag/generasisehatmasadepanhebat?refer=embed">#GenerasiSehatMasaDepanHebat</a> <a title="kompetisivideokreatif" target="_blank" href="https://www.tiktok.com/tag/kompetisivideokreatif?refer=embed">#KompetisiVideoKreatif</a> <a target="_blank" title="♬ original sound - Artí" href="https://www.tiktok.com/music/original-sound-7553760968887552782?refer=embed">♬ original sound - Artí</a> </section> </blockquote>`,
     scriptUrl: "https://www.tiktok.com/embed.js",
   },
+  {
+    name: "Snack Video",
+    embedCode: `<iframe width="560" height="315" src="https://www.snackvideo.com/embed/5199274405203918615" title="video detail" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
+    scriptUrl: "",
+  },
 ];
 
 export default function MainContentSection() {
   const [activePlatform, setActivePlatform] = useState<number>(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Load script untuk platform yang aktif
@@ -115,7 +124,7 @@ export default function MainContentSection() {
       script.async = true;
 
       if (currentPlatform.name === "Twitter") {
-        script.charset = "utf-8";
+        script.setAttribute("charset", "utf-8");
       }
 
       document.body.appendChild(script);
@@ -132,6 +141,35 @@ export default function MainContentSection() {
 
     };
   }, [activePlatform]);
+
+  // Check scroll position
+  const checkScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener("resize", checkScroll);
+    return () => window.removeEventListener("resize", checkScroll);
+  }, []);
+
+  const scrollToLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -150, behavior: "smooth" });
+      setTimeout(checkScroll, 100);
+    }
+  };
+
+  const scrollToRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 150, behavior: "smooth" });
+      setTimeout(checkScroll, 100);
+    }
+  };
 
   return (
     <section className="py-8 md:py-16 lg:py-20 bg-gray-100">
@@ -288,20 +326,51 @@ export default function MainContentSection() {
               <Card className="border border-gray-200 bg-white rounded-xl md:rounded-2xl shadow-md transition-all duration-300">
                 <CardContent className="p-3 md:p-4">
                   {/* Social Media Tabs */}
-                  <div className="flex items-center justify-start gap-2 mb-3 md:mb-4 overflow-x-auto">
-                    {socialMediaPlatforms.map((platform, index) => (
-                      <button
-                        key={platform.name}
-                        onClick={() => setActivePlatform(index)}
-                        className={`px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all duration-300 whitespace-nowrap ${
-                          activePlatform === index
-                            ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                        }`}
-                      >
-                        {platform.name}
-                      </button>
-                    ))}
+                  <div className="relative mb-3 md:mb-4">
+                    {/* Left Arrow - Desktop Only */}
+                    <button
+                      onClick={scrollToLeft}
+                      className={`hidden md:block absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-1 shadow-md transition-all ${
+                        canScrollLeft
+                          ? "opacity-100 cursor-pointer hover:bg-gray-100"
+                          : "opacity-0 pointer-events-none"
+                      }`}
+                    >
+                      <ChevronLeftIcon className="w-4 h-4 text-gray-600" />
+                    </button>
+
+                    {/* Scrollable Container */}
+                    <div
+                      ref={scrollContainerRef}
+                      onScroll={checkScroll}
+                      className="flex items-center gap-2 overflow-x-auto scrollbar-hide px-6 md:px-8"
+                    >
+                      {socialMediaPlatforms.map((platform, index) => (
+                        <button
+                          key={platform.name}
+                          onClick={() => setActivePlatform(index)}
+                          className={`px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
+                            activePlatform === index
+                              ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg"
+                              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          }`}
+                        >
+                          {platform.name}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Right Arrow - Desktop Only */}
+                    <button
+                      onClick={scrollToRight}
+                      className={`hidden md:block absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-1 shadow-md transition-all ${
+                        canScrollRight
+                          ? "opacity-100 cursor-pointer hover:bg-gray-100"
+                          : "opacity-0 pointer-events-none"
+                      }`}
+                    >
+                      <ChevronRightIcon className="w-4 h-4 text-gray-600" />
+                    </button>
                   </div>
 
                   {/* Embed Container */}
