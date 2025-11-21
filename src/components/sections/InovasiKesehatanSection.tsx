@@ -7,7 +7,7 @@ import Image from "next/image";
 const inovasiData = {
   featured: {
     id: 1,
-    image: "/LAYANAN/inovasi.png",
+    image: "/LAYANAN/inovasi.webp",
     title: "INOVASI KESEHATAN",
     description:
       "Rangkaian terobosan dan pengembangan solusi baru untuk meningkatkan kualitas pelayanan dan sistem kesehatan di Indonesia."
