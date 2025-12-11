@@ -72,7 +72,7 @@ const layananData = [
   },
 ];
 
-export default function LayananSection() {
+export default function ServicesSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);

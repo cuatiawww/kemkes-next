@@ -2,129 +2,40 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
-// Mega menu content untuk setiap item navigasi (Beranda tidak perlu mega menu)
+// Mega menu content untuk setiap item navigasi (single column style)
 const megaMenuContent = {
-  PROFIL: {
-    sections: [
-      {
-        title: "Tentang Kami",
-        items: [
-          { name: "Sejarah", href: "/profil/sejarah" },
-          { name: "Struktur Organisasi", href: "/profil/struktur" },
-          { name: "Tugas & Fungsi", href: "/profil/tugas-fungsi" },
-        ],
-      },
-      {
-        title: "Pimpinan",
-        items: [
-          { name: "Kepala Dinas", href: "/profil/kepala-dinas" },
-          { name: "Sekretaris", href: "/profil/sekretaris" },
-          { name: "Kepala Bidang", href: "/profil/kepala-bidang" },
-        ],
-      },
-    ],
-  },
-  "INFORMASI PUBLIK": {
-    sections: [
-      {
-        title: "Rilis Kementerian Kesehatan",
-        items: [
-          { name: "Rilis Terbaru", href: "/informasi-publik/rilis" },
-          { name: "Berita Kesehatan", href: "/informasi-publik/berita" },
-          { name: "Artikel Kesehatan", href: "/informasi-publik/artikel" },
-        ],
-      },
-      {
-        title: "Pengumuman",
-        items: [
-          { name: "Pengumuman Resmi", href: "/informasi-publik/pengumuman" },
-          { name: "Buku Panduan", href: "/informasi-publik/panduan" },
-          { name: "Agenda Kegiatan", href: "/informasi-publik/agenda" },
-        ],
-      },
-    ],
-  },
-  LAYANAN: {
-    sections: [
-      {
-        title: "Layanan Kesehatan",
-        items: [
-          { name: "SATUSEHAT", href: "/layanan/satusehat" },
-          { name: "Penanggulangan Penyakit", href: "/layanan/penanggulangan-penyakit" },
-          { name: "Pelayanan Kesehatan Rujukan", href: "/layanan/rujukan" },
-          { name: "Sertifikasi Kesehatan", href: "/layanan/sertifikasi" },
-        ],
-      },
-      {
-        title: "Layanan Digital",
-        items: [
-          { name: "Farmasi dan Alat Kesehatan", href: "/layanan/farmasi" },
-          { name: "Kebijakan Kesehatan", href: "/layanan/kebijakan" },
-          { name: "Data Informasi Kesehatan", href: "/layanan/data-informasi" },
-        ],
-      },
-    ],
-  },
-  MEDIA: {
-    sections: [
-      {
-        title: "Media Publikasi",
-        items: [
-          { name: "Publikasi Terbaru", href: "/media/publikasi" },
-          { name: "Infografis Kesehatan", href: "/media/infografis" },
-          { name: "Video Edukasi", href: "/media/video" },
-        ],
-      },
-      {
-        title: "Foto Kegiatan",
-        items: [
-          { name: "Galeri Foto", href: "/media/foto" },
-          { name: "Dokumentasi Kegiatan", href: "/media/dokumentasi" },
-          { name: "Album Foto", href: "/media/album" },
-        ],
-      },
-    ],
-  },
-  TAUTAN: {
-    sections: [
-      {
-        title: "Link Terkait",
-        items: [
-          { name: "Website Pemerintah", href: "/tautan/pemerintah" },
-          { name: "Instansi Terkait", href: "/tautan/instansi" },
-          { name: "Partner Kami", href: "/tautan/partner" },
-        ],
-      },
-      {
-        title: "Social Media",
-        items: [
-          { name: "Instagram", href: "https://www.instagram.com/ayosehat.kemkes" },
-          { name: "Twitter", href: "https://twitter.com/KemenkesRI" },
-          { name: "TikTok", href: "https://www.tiktok.com/@kemenkesri" },
-        ],
-      },
-    ],
-  },
-  "KONTAK KAMI": {
-    sections: [
-      {
-        title: "Hubungi Kami",
-        items: [
-          { name: "Alamat Kantor", href: "/kontak/alamat" },
-          { name: "Email & Telepon", href: "/kontak/email-telepon" },
-          { name: "Jam Layanan", href: "/kontak/jam-layanan" },
-        ],
-      },
-      {
-        title: "Feedback",
-        items: [
-          { name: "Form Kontak", href: "/kontak/form" },
-          { name: "Kritik & Saran", href: "/kontak/kritik-saran" },
-          { name: "FAQ", href: "/kontak/faq" },
-        ],
-      },
-    ],
-  },
+  PROFIL: [
+    { name: "VISI DAN MISI", href: "/profil/visi-misi" },
+    { name: "STRUKTUR ORGANISASI", href: "/profil/struktur" },
+    { name: "TUGAS, FUNGSI DAN KEDUDUKAN", href: "/profil/tugas-fungsi" },
+    { name: "UNIT KERJA DAN PEJABAT", href: "/profil/unit-kerja" },
+    { name: "FILOSOFI LOGO KEMENTERIAN KESEHATAN", href: "/profil/filosofi-logo" },
+  ],
+  "INFORMASI PUBLIK": [
+    { name: "INFORMASI BERKALA", href: "/informasi-publik/berkala" },
+    { name: "INFORMASI SETIAP SAAT", href: "/informasi-publik/setiap-saat" },
+    { name: "INFORMASI SERTA MERTA", href: "/informasi-publik/serta-merta" },
+  ],
+  LAYANAN: [
+    { name: "UNIT PELAYANAN KESEHATAN (UPK)", href: "/layanan/upk" },
+    { name: "UNIT LAYANAN TERPADU (ULT)", href: "/layanan/ult" },
+  ],
+
+  TAUTAN: [
+    { name: "SEKRETARIAT JENDERAL", href: "/tautan/sekretariat" },
+    { name: "DITJEN KESEHATAN PRIMER DAN KOMUNITAS", href: "/tautan/kesehatan-primer" },
+    { name: "DITJEN PENANGGULANGAN PENYAKIT", href: "/tautan/penanggulangan-penyakit" },
+    { name: "DITJEN KESEHATAN LANJUTAN", href: "/tautan/kesehatan-lanjutan" },
+    { name: "DITJEN FARMASI DAN ALKES", href: "/tautan/farmasi" },
+    { name: "DITJEN SDM KESEHATAN", href: "/tautan/sdm" },
+    { name: "INSPEKTORAT JENDERAL", href: "/tautan/inspektorat" },
+    { name: "BADAN KEBIJAKAN PEMBANGUNAN KESEHATAN", href: "/tautan/badan-kebijakan" },
+  ],
+  "KONTAK KAMI": [
+    { name: "ALAMAT", href: "/kontak/alamat" },
+    { name: "EMAIL", href: "/kontak/email" },
+    { name: "TELEPON", href: "/kontak/telepon" },
+  ],
 };
 
 const navItems = [
@@ -136,7 +47,7 @@ const navItems = [
     href: "/informasi-publik",
   },
   { name: "LAYANAN", img: "/MENU/layanan.svg", href: "/layanan" },
-  { name: "MEDIA", img: "/MENU/media.svg", href: "/media" },
+  { name: "MEDIA", img: "/MENU/media.svg", href: "/mediadownload" },
   { name: "TAUTAN", img: "/MENU/tautan.svg", href: "/tautan" },
   { name: "KONTAK KAMI", img: "/MENU/kontak.svg", href: "/kontak" },
 ];
@@ -210,13 +121,13 @@ export default function Navbar() {
               <li
                 key={item.name}
                 className="relative"
-                onMouseEnter={() => item.name !== "BERANDA" && handleMouseEnter(item.name)}
+                onMouseEnter={() => item.name !== "BERANDA" && item.name !== "MEDIA" && handleMouseEnter(item.name)}
                 onMouseLeave={handleMouseLeave}
               >
                 <a
                   href={item.href}
                   onClick={(e) => {
-                    if (item.name !== "BERANDA") {
+                    if (item.name !== "BERANDA" && item.name !== "MEDIA") {
                       e.preventDefault();
                     }
                     setActiveItem(item.name);
@@ -238,7 +149,7 @@ export default function Navbar() {
                     className="w-5 h-5"
                   />
                   {item.name}
-                  {item.name !== "BERANDA" && (
+                  {item.name !== "BERANDA" && item.name !== "MEDIA" && (
                     <svg
                       className={`w-4 h-4 transition-transform duration-300 ${
                         hoveredItem === item.name ? "rotate-180" : ""
@@ -260,58 +171,26 @@ export default function Navbar() {
                   )}
                 </a>
 
-                {/* Desktop Mega Menu */}
-                {hoveredItem === item.name && item.name !== "BERANDA" && megaMenuContent[item.name as keyof typeof megaMenuContent] && (
+                {/* Desktop Mega Menu - Single Column Style */}
+                {hoveredItem === item.name && item.name !== "BERANDA" && item.name !== "MEDIA" && megaMenuContent[item.name as keyof typeof megaMenuContent] && (
                   <div
-                    className="absolute left-1/2 transform -translate-x-1/2 mt-0 w-screen max-w-2xl lg:max-w-3xl xl:max-w-4xl"
+                    className="absolute left-1/2 transform -translate-x-1/2 mt-0"
                     onMouseEnter={() => handleMouseEnter(item.name)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-100 animate-fadeIn">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 p-4 md:p-6 lg:p-8">
-                        {megaMenuContent[
-                          item.name as keyof typeof megaMenuContent
-                        ]?.sections.map((section, idx) => (
-                          <div key={idx} className="space-y-4">
-                            <h3 className="text-lg font-bold text-gray-900 border-b-2 border-primary pb-2">
-                              {section.title}
-                            </h3>
-                            <ul className="space-y-2">
-                              {section.items.map((subItem, subIdx) => (
-                                <li key={subIdx}>
-                                  <a
-                                    href={subItem.href}
-                                    className="flex items-center gap-2 text-gray-600 hover:text-primary hover:translate-x-2 transition-all duration-300 group"
-                                  >
-                                    <svg
-                                      className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M9 5l7 7-7 7"
-                                      />
-                                    </svg>
-                                    <span className="text-sm font-medium">
-                                      {subItem.name}
-                                    </span>
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                    <div className="bg-teal-500 rounded-lg shadow-2xl overflow-hidden animate-fadeIn min-w-[400px]">
+                      <ul className="py-2">
+                        {megaMenuContent[item.name as keyof typeof megaMenuContent]?.map((subItem, idx) => (
+                          <li key={idx}>
+                            <a
+                              href={subItem.href}
+                              className="block px-6 py-3 text-white font-semibold hover:bg-teal-600 transition-colors"
+                            >
+                              {subItem.name}
+                            </a>
+                          </li>
                         ))}
-                      </div>
-                      {/* Decorative Element */}
-                      <div className="bg-gradient-to-r from-primary/10 to-primary/5 px-8 py-4">
-                        <p className="text-sm text-gray-600 text-center">
-                          Klik item untuk informasi lebih lanjut
-                        </p>
-                      </div>
+                      </ul>
                     </div>
                   </div>
                 )}
@@ -367,7 +246,7 @@ export default function Navbar() {
           <ul className="px-4 py-4 space-y-2 max-h-[calc(100vh-5rem)] overflow-y-auto">
             {navItems.map((item) => (
               <li key={item.name} className="space-y-2">
-                {item.name === "BERANDA" ? (
+                {item.name === "BERANDA" || item.name === "MEDIA" ? (
                   <a
                     href={item.href}
                     onClick={() => {
@@ -432,47 +311,25 @@ export default function Navbar() {
                       </svg>
                     </button>
 
-                    {/* Mobile Mega Menu */}
+                    {/* Mobile Mega Menu - Single Column */}
                     {megaMenuOpen === item.name && megaMenuContent[item.name as keyof typeof megaMenuContent] && (
-                      <div className="pl-4 space-y-4 animate-fadeIn">
-                        {megaMenuContent[
-                          item.name as keyof typeof megaMenuContent
-                        ]?.sections.map((section, idx) => (
-                          <div key={idx} className="space-y-2">
-                            <h3 className="text-sm font-bold text-gray-900 px-4 py-2 bg-gray-50 rounded">
-                              {section.title}
-                            </h3>
-                            <ul className="space-y-1">
-                              {section.items.map((subItem, subIdx) => (
-                                <li key={subIdx}>
-                                  <a
-                                    href={subItem.href}
-                                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors"
-                                    onClick={() => {
-                                      setMobileMenuOpen(false);
-                                      setMegaMenuOpen(null);
-                                    }}
-                                  >
-                                    <svg
-                                      className="w-3 h-3 text-primary"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M9 5l7 7-7 7"
-                                      />
-                                    </svg>
-                                    {subItem.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
+                      <div className="bg-teal-500 rounded-lg overflow-hidden animate-fadeIn">
+                        <ul className="py-2">
+                          {megaMenuContent[item.name as keyof typeof megaMenuContent]?.map((subItem, idx) => (
+                            <li key={idx}>
+                              <a
+                                href={subItem.href}
+                                className="block px-6 py-3 text-white font-semibold hover:bg-teal-600 transition-colors"
+                                onClick={() => {
+                                  setMobileMenuOpen(false);
+                                  setMegaMenuOpen(null);
+                                }}
+                              >
+                                {subItem.name}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     )}
                   </>

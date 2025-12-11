@@ -2,12 +2,14 @@ import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
 import MarqueeBar from "@/components/layout/MarqueeBar";
 import Footer from "@/components/layout/Footer";
-import HeroSection from "@/components/sections/HeroSection";
-import MainContentSection from "@/components/sections/MainContentSection";
-import LayananSection from "@/components/sections/LayananSection";
-import InovasiKesehatanSection from "@/components/sections/InovasiKesehatanSection";
-import LayananDigitalSection from "@/components/sections/LayananDigitalSection";
-import MediaFotoSection from "@/components/sections/MediaFotoSection";
+import HeroSection from "@/components/features/hero/HeroSection";
+import NewsSection from "@/components/features/news/NewsSection";
+import { AnnouncementsSidebar } from "@/components/features/news/NewsSection";
+import SocialMediaSection from "@/components/features/news/SocialMediaSection";
+import MediaSection from "@/components/features/media/MediaSection";
+import ServicesSection from "@/components/features/services/ServicesSection";
+import InnovationSection from "@/components/features/innovation/InnovationSection";
+import DigitalServicesSection from "@/components/features/services/DigitalServicesSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -135,12 +137,28 @@ export default function Home() {
         <MarqueeBar />
         <HeroSection />
 
-        <MainContentSection />
-        <MediaFotoSection />
-        <LayananSection />
-        <InovasiKesehatanSection />
-        <LayananDigitalSection />
-        
+        {/* News & Announcements Section */}
+        <section className="py-8 md:py-16 lg:py-20 bg-gray-100">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+              {/* Left Column - News/Rilis */}
+              <div className="lg:col-span-2">
+                <NewsSection />
+              </div>
+
+              {/* Right Column - Announcements & Social Media */}
+              <div className="lg:col-span-1 space-y-6 md:space-y-8">
+                <AnnouncementsSidebar />
+                <SocialMediaSection />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <MediaSection />
+        <ServicesSection />
+        <InnovationSection />
+        <DigitalServicesSection />
 
         <Footer />
       </main>
