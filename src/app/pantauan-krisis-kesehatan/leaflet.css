@@ -1,0 +1,22 @@
+/* Import Leaflet CSS from CDN */
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-popup .leaflet-popup-content {
+  margin: 16px;
+  min-width: 200px;
+}
+
+.custom-popup .leaflet-popup-tip {
+  background: white;
+}

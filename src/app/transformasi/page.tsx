@@ -3,8 +3,6 @@ import Navbar from "@/components/layout/Navbar";
 import MarqueeBar from "@/components/layout/MarqueeBar";
 import Footer from "@/components/layout/Footer";
 import { SmallBanner } from "@/components/common/Banner";
-import PageLayout from "@/components/layout/PageLayout";
-import RightSidebar from "@/components/layout/RightSidebar";
 import TransformasiContent from "./TransformasiContent";
 import type { Metadata } from "next";
 
@@ -40,7 +38,6 @@ export default function TransformasiPage() {
         <Navbar />
         <MarqueeBar />
 
-        {/* Small Banner */}
         <SmallBanner
           image="/hero.webp"
           title="TRANSFORMASI KESEHATAN INDONESIA"
@@ -48,19 +45,11 @@ export default function TransformasiPage() {
           height="350px"
         />
 
-        <PageLayout
-          sidebar={
-            <RightSidebar
-              showAnnouncements={true}
-              showSocialMedia={true}
-              showCalendar={true}
-              showRilis={false}
-            />
-          }
-          mainClassName="space-y-8 md:space-y-12"
-        >
-          <TransformasiContent />
-        </PageLayout>
+        <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
+          <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
+            <TransformasiContent />
+          </div>
+        </div>
 
         <Footer />
       </main>
